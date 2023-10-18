@@ -8,12 +8,15 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Options extends Button
 {
-    /**
-     * Act - do whatever the Options wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     public void act()
     {
-        // Add your action code here.
+        checkMouse();
+    }
+    
+    public Options()
+    {
+        GreenfootImage optionBtn = getImage();
+        optionBtn.scale(optionBtn.getWidth()-50, optionBtn.getHeight()-50);
+        setImage(optionBtn);
     }
 }

@@ -7,13 +7,35 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version (a version number or a date)
  */
 public class Button extends Actor
-{
-    /**
-     * Act - do whatever the Buttons wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act()
+{  
+    // sets the amount to scale the button when overed
+    private static int SCALE = 50;
+    
+    // keeps track if the button is overed or not
+    private boolean mouseOver = false;
+    
+    // Check if the mouse is overing the button
+    public void checkMouse()
     {
-        // Add your action code here.
+        // check if mouse is overing the image 
+        if (Greenfoot.mouseMoved(this) && !mouseOver)
+        {
+            scaleImg(SCALE);
+            mouseOver = true;
+        }
+        // check if mouse is not overing the image 
+        else if (Greenfoot.mouseMoved(null) && mouseOver && !Greenfoot.mouseMoved(this))
+        {
+            scaleImg(-SCALE);
+            mouseOver = false;
+        }
+    }
+    
+    // Scales the image
+    public void scaleImg(int scale)
+    {
+        GreenfootImage img = getImage();
+        img.scale(img.getWidth() + scale,img.getHeight() + scale);
+        setImage(img);
     }
 }

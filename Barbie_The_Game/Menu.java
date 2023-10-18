@@ -26,6 +26,18 @@ public class Menu extends World
         GreenfootImage logo = new GreenfootImage("../logo.png");
         Picture logoImg = new Picture(logo);
         addObject(logoImg, getWidth()/2, getHeight()/3);    
+        
+        // Add the play button as image
+        Play playImg = new Play();
+        addObject(playImg, getWidth()/2, 450); 
+        
+        // Add the options button as image
+        Options optionsImg = new Options();
+        addObject(optionsImg, getWidth()/2, 550);
+        
+        // Add the exit button as image
+        Exit exitImg = new Exit();
+        addObject(exitImg, getWidth()/2, 650);
     }
     
     // Do something when the user clicks Run/Act

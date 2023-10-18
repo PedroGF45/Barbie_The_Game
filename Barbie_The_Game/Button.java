@@ -31,6 +31,16 @@ public class Button extends Actor
         }
     }
     
+    public void checkClicked(World world, GreenfootSound sound)
+    {
+        if (Greenfoot.mouseClicked(this))
+        {
+            Greenfoot.setWorld(world);
+            sound.play();
+        }
+    }
+    
+    
     // Scales the image
     public void scaleImg(int scale)
     {

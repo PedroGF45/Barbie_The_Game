@@ -11,6 +11,10 @@ public class Exit extends Button
     public void act()
     {
         checkMouse();
+        if (Greenfoot.mouseClicked(this))
+        {
+            Greenfoot.stop();
+        }
     }
     
     public Exit()

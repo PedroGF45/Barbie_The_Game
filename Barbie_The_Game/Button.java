@@ -31,6 +31,7 @@ public class Button extends Actor
         }
     }
     
+    // if the user clicks on the buttons change the world and play a sound
     public void checkClicked(World world, GreenfootSound sound)
     {
         if (Greenfoot.mouseClicked(this))

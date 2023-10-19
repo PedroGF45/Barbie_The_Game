@@ -15,7 +15,7 @@ public class Menu extends World
     public Menu()
     {    
         // Create a new world with 1080x720 cells with a cell size of 1x1 pixels.
-        super(1080, 720, 1); 
+        super(800, 800, 1); 
         // Prepares the world before hitting Run/Act
         prepare();
     }

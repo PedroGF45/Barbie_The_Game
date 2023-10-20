@@ -11,7 +11,7 @@ public class Play extends Button
     public void act()
     {
         checkMouse();
-        checkClicked(new Puzzle(), new GreenfootSound("../start_game.mp3"));
+        checkClicked(new PlayerSelection(), new GreenfootSound("../start_game.mp3"));
     }
     
     public Play()

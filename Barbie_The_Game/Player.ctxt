@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Player
+comment1.params=
+comment1.target=Player()
+comment2.params=vidas
+comment2.target=Player(int)
+comment3.params=botao1\ botao2\ botao3\ botao4\ esquerda\ direita\ repouso
+comment3.target=void\ mover(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ greenfoot.GreenfootImage[],\ greenfoot.GreenfootImage[],\ greenfoot.GreenfootImage[])
+comment4.params=seqImagens
+comment4.target=void\ animacao(greenfoot.GreenfootImage[])
+comment5.params=seqImaTam
+comment5.target=void\ escala(greenfoot.GreenfootImage[])
+numComments=6

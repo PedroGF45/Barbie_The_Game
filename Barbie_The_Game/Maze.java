@@ -206,17 +206,35 @@ public class Maze extends World
 
         Health barbieHealth = new Health();
         addObject(barbieHealth, 110, 25);
-        
+
+        Health kenHealth = new Health();
+        addObject(kenHealth, 700, 25);
+
         Barbie barbie = new Barbie(barbieHealth);
         addObject(barbie,95,700);
 
+        Ken ken = new Ken(kenHealth);
+        addObject(ken,725,75);
+
+        // Add speedboost, lifeboost
         SpeedBoost speedBoost = new SpeedBoost();
         addObject(speedBoost,74,574);
         SpeedBoost speedBoost2 = new SpeedBoost();
         addObject(speedBoost2,374,171);
         SpeedBoost speedBoost3 = new SpeedBoost();
         addObject(speedBoost3,529,416);
+        LifeBoost lifeBoost = new LifeBoost();
+        addObject(lifeBoost,677,328);
+        LifeBoost lifeBoost2 = new LifeBoost();
+        addObject(lifeBoost2,77,327);
+        LifeBoost lifeBoost3 = new LifeBoost();
+        addObject(lifeBoost3,175,525);
+        LifeBoost lifeBoost4 = new LifeBoost();
+        addObject(lifeBoost4,326,229);
+        LifeBoost lifeBoost5 = new LifeBoost();
+        addObject(lifeBoost5,522,626);
 
+        // Add enemies
         Bird bird = new Bird();
         addObject(bird,375,503);
         Bird bird2 = new Bird();

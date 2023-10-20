@@ -19,7 +19,10 @@ public class Ken extends Player
     {
         mover("left", "up", "down", "right", esquerda, direita, repouso);
         hitSpeedBoost();
+        hitLifeBoost();
         updateHealth();
+        respawn();
+        isLost();
     }
     
     public Ken(Health health)
@@ -71,5 +74,12 @@ public class Ken extends Player
         escala(morte);
         escala(repouso);
         setImage(repouso[0]);
+    }
+    
+    private void respawn() {
+        if (isTouchingEnemy())
+        {
+            setLocation(725,75);  
+        }
     }
 }

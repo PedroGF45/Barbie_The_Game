@@ -40,12 +40,19 @@ public class Health extends Actor
         updateLife(heart);
     }
     
-    public void loseLife() {
+    public int getHealth() 
+    {
+        return units;
+    }
+    
+    public void loseLife() 
+    {
         units--;
         updateLife(heart);
     }
     
-    public void gainLife() {
+    public void gainLife() 
+    {
         units++;
         updateLife(heart);
     }

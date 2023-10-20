@@ -15,6 +15,7 @@ public class Barbie extends Player
     {
         mover("a", "w", "s", "d", esquerda, direita, repouso);
         hitSpeedBoost();
+        hitLifeBoost();
         updateHealth();
         respawn();
         isLost();

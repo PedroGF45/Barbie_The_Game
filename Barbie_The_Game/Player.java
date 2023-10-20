@@ -99,6 +99,18 @@ public class Player extends Actor
         }
     }
     
+    public void hitLifeBoost()
+    {
+        if (isTouching(LifeBoost.class))
+        {
+            if (health.getHealth() < 5) 
+            {
+                health.gainLife();
+                removeTouching(LifeBoost.class);
+            }     
+        }
+    }
+    
     public void updateHealth()
     {
         if (isTouchingEnemy()) {

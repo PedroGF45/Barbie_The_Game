@@ -18,10 +18,14 @@ public class Ken extends Player
     public void act()
     {
         mover("left", "up", "down", "right", esquerda, direita, repouso);
+        hitSpeedBoost();
+        updateHealth();
     }
     
-    public Ken()
+    public Ken(Health health)
     {
+        super(health);
+        
         esquerda= new GreenfootImage[10];
         direita= new GreenfootImage[10];
         morte= new GreenfootImage[10];

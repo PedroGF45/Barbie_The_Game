@@ -1,21 +1,21 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-import greenfoot.World;
 
 public class Player extends Actor
 {
-    private int velocidade=5;
-    private int vidas, contImag;
-    public int tamanho=10;
-    private String key=Greenfoot.getKey();
-   
-    public Player()
+    private int speed = 5;
+    private int contImag;
+    public int tamanho = 13;
+    private String key = Greenfoot.getKey();  
+    private Health health;
+    
+    public Player(Health health)
     {
-        vidas=3;
+        this.health = health;
     }
     
-    public Player (int vidas)
+    public void act()
     {
-        this.vidas=vidas;
+        
     }
     
     public void mover(String botao1, String botao2, String botao3, String botao4,GreenfootImage[] esquerda, GreenfootImage[] direita,GreenfootImage[] repouso )
@@ -26,32 +26,36 @@ public class Player extends Actor
         //mover para a esquerda
         if(Greenfoot.isKeyDown (botao1))
         {
-            move(-velocidade);
-            //setLocation(x-velocidade, y);
+            move(-speed);
+            if (isTouchingWalls()) move(speed);
+            //setLocation(x-speed, y);
             animacao(esquerda);
             
         }
         // mover para cima
         else if(Greenfoot.isKeyDown (botao2))
         {
-            //move(velocidade);
-            setLocation(x, y-velocidade);
+            //move(speed);
+            setLocation(x, y-speed);
+            if (isTouchingWalls()) setLocation(x, y+speed);
             animacao(esquerda);
             
         }
         //mover para baixo
         else if(Greenfoot.isKeyDown (botao3))
         {
-            //move(velocidade);
-            setLocation(x, y+velocidade);
+            //move(speed);
+            setLocation(x, y+speed);
+            if (isTouchingWalls()) setLocation(x, y-speed);
             animacao(direita);
             
         }
         //mover para a direita
         else if(Greenfoot.isKeyDown (botao4))
         {
-            move(velocidade);
-            //setLocation(x+velocidade, y);
+            move(speed);
+            if (isTouchingWalls()) move(-speed);
+            //setLocation(x+speed, y);
             animacao(direita);
             
         }
@@ -75,6 +79,45 @@ public class Player extends Actor
         for(int i=0;i< seqImaTam.length ;i++){
             seqImaTam[i].scale(seqImaTam[i].getWidth()/tamanho,seqImaTam[i].getHeight()/tamanho);
             setImage(seqImaTam[i]);
+        }
+    }
+    
+    public boolean isTouchingWalls()
+    {
+        return isTouching(Square.class);
+    }
+    
+    public void hitSpeedBoost()
+    {
+        if (isTouching(SpeedBoost.class))
+        {
+            if (speed <=5) 
+            {
+                speed++;
+                removeTouching(SpeedBoost.class);
+            }     
+        }
+    }
+    
+    public void updateHealth()
+    {
+        if (isTouchingEnemy()) {
+            health.loseLife();
+        }
+    }
+    
+    public boolean isTouchingEnemy()
+    {
+        return isTouching(Enemy.class);
+    }
+    
+    public void isLost()
+    {
+        if (health.units == 0) 
+        {
+            System.out.print("You Lose");
+            Maze newMaze = new Maze();
+            Greenfoot.setWorld(newMaze);
         }
     }
 }

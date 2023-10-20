@@ -9,14 +9,21 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Barbie extends Player
 {
     private GreenfootImage[] esquerda, direita, morte, repouso;
+    private Health health;
     
     public void act()
     {
         mover("a", "w", "s", "d", esquerda, direita, repouso);
+        hitSpeedBoost();
+        updateHealth();
+        respawn();
+        isLost();
     }
     
-    public Barbie()
+    public Barbie(Health health)
     {
+        super(health);
+        
         esquerda= new GreenfootImage[10];
         direita= new GreenfootImage[10];
         morte= new GreenfootImage[10];
@@ -62,5 +69,12 @@ public class Barbie extends Player
         escala(morte);
         escala(repouso);
         setImage(repouso[0]);
+    }
+    
+    private void respawn() {
+        if (isTouchingEnemy())
+        {
+            setLocation(95,700);  
+        }
     }
 }

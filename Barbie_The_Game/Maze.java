@@ -203,5 +203,25 @@ public class Maze extends World
         addObject(square141,475,75);
         Square square142 = new Square();
         addObject(square142,375,225);
+
+        Health barbieHealth = new Health();
+        addObject(barbieHealth, 110, 25);
+        
+        Barbie barbie = new Barbie(barbieHealth);
+        addObject(barbie,95,700);
+
+        SpeedBoost speedBoost = new SpeedBoost();
+        addObject(speedBoost,74,574);
+        SpeedBoost speedBoost2 = new SpeedBoost();
+        addObject(speedBoost2,374,171);
+        SpeedBoost speedBoost3 = new SpeedBoost();
+        addObject(speedBoost3,529,416);
+
+        Bird bird = new Bird();
+        addObject(bird,375,503);
+        Bird bird2 = new Bird();
+        addObject(bird2,372,618);
+        Bird bird3 = new Bird();
+        addObject(bird3,375,734);
     }
 }

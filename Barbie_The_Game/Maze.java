@@ -203,16 +203,14 @@ public class Maze extends World
         addObject(square141,475,75);
         Square square142 = new Square();
         addObject(square142,375,225);
-
+        
+        // Add Health bars and players
         Health barbieHealth = new Health();
-        addObject(barbieHealth, 110, 25);
-
+        addObject(barbieHealth, 110, 775);
+        Barbie barbie = new Barbie(barbieHealth);
+        addObject(barbie,95,700);       
         Health kenHealth = new Health();
         addObject(kenHealth, 700, 25);
-
-        Barbie barbie = new Barbie(barbieHealth);
-        addObject(barbie,95,700);
-
         Ken ken = new Ken(kenHealth);
         addObject(ken,725,75);
 
@@ -222,7 +220,7 @@ public class Maze extends World
         SpeedBoost speedBoost2 = new SpeedBoost();
         addObject(speedBoost2,374,171);
         SpeedBoost speedBoost3 = new SpeedBoost();
-        addObject(speedBoost3,529,416);
+        addObject(speedBoost3,525,375);
         LifeBoost lifeBoost = new LifeBoost();
         addObject(lifeBoost,677,328);
         LifeBoost lifeBoost2 = new LifeBoost();
@@ -241,5 +239,19 @@ public class Maze extends World
         addObject(bird2,372,618);
         Bird bird3 = new Bird();
         addObject(bird3,375,734);
+        Snake snake = new Snake();
+        addObject(snake,76,322);
+        Snake snake2 = new Snake();
+        addObject(snake2,723,525);
+        Snake snake3 = new Snake();
+        addObject(snake3,622,725);
+        Spider spider = new Spider();
+        addObject(spider,264,325);
+        Spider spider2 = new Spider();
+        addObject(spider2,628,77);
+        Spider spider3 = new Spider();
+        addObject(spider3,526,79);
+        Spider spider4 = new Spider();
+        addObject(spider4,571,429);
     }
 }

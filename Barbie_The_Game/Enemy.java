@@ -8,13 +8,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Enemy extends Actor
 {
+    public int speed = 2;
     /**
      * Act - do whatever the Enemies wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()
     {
-        // Add your action code here.
+        
     }
     
     public void moveAtEdge()
@@ -51,6 +52,20 @@ public class Enemy extends Actor
         turnTowards(x,y);
         int rotation = getRotation();
         setRotation(rotation + 89);
+        move(speed);
+    }
+    
+    public boolean isTouchingWall()
+    {
+        return isTouching(Square.class);
+    }
+    
+    public void moveHorizontally() 
+    {
+        if (isTouchingWall())
+        {
+            speed = - speed;
+        }
         move(speed);
     }
 }

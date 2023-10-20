@@ -14,6 +14,7 @@ public class Spider extends Enemy
      */
     public void act()
     {
+        moveVertically();
         moveAtEdge();
     }
     

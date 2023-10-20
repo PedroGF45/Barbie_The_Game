@@ -55,17 +55,32 @@ public class Enemy extends Actor
         move(speed);
     }
     
-    public boolean isTouchingWall()
+    private boolean isTouchingWall()
     {
         return isTouching(Square.class);
+    }
+    
+    private void changeSpeed()
+    {
+        speed = - speed;
     }
     
     public void moveHorizontally() 
     {
         if (isTouchingWall())
         {
-            speed = - speed;
+            changeSpeed();
         }
+        move(speed);
+    }
+    
+    public void moveVertically()
+    {
+        if (isTouchingWall())
+        {
+            changeSpeed();
+        }
+        setRotation(90);
         move(speed);
     }
 }

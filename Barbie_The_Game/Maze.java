@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Maze extends World
 {
     public int imageSize = 50;
+    private int playerHearts = 5;
     /**
      * Constructor for objects of class Maze.
      * 
@@ -205,11 +206,11 @@ public class Maze extends World
         addObject(square142,375,225);
         
         // Add Health bars and players
-        Health barbieHealth = new Health();
+        Health barbieHealth = new Health(playerHearts);
         addObject(barbieHealth, 110, 775);
         Barbie barbie = new Barbie(barbieHealth);
         addObject(barbie,95,700);       
-        Health kenHealth = new Health();
+        Health kenHealth = new Health(playerHearts);
         addObject(kenHealth, 700, 25);
         Ken ken = new Ken(kenHealth);
         addObject(ken,725,75);

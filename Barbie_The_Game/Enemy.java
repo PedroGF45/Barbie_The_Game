@@ -55,16 +55,19 @@ public class Enemy extends Actor
         move(speed);
     }
     
+    // Check if entity is touching the wall
     private boolean isTouchingWall()
     {
         return isTouching(Square.class);
     }
     
+    // Change the movement to the opposite direction
     private void changeSpeed()
     {
         speed = - speed;
     }
     
+    // Movement for horizontally alligned enemies
     public void moveHorizontally() 
     {
         if (isTouchingWall())
@@ -73,7 +76,8 @@ public class Enemy extends Actor
         }
         move(speed);
     }
-    
+
+    // Movement for vertically alligned enemies
     public void moveVertically()
     {
         if (isTouchingWall())

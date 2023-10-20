@@ -8,12 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Health extends Actor
 {
-    public int units = 5;
-    private int maxUnits = 5;
+    public int hearts, maxHearts;
     
     GreenfootImage heart = new GreenfootImage("../heart.png");
-    
-    
+      
     /**
      * Act - do whatever the Heart wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -26,34 +24,36 @@ public class Health extends Actor
     public void updateLife(GreenfootImage heart) {
         int x = heart.getWidth();
         int y = heart.getHeight();
-        GreenfootImage image = new GreenfootImage(x * maxUnits, y);
-        for (int i = 0; i < units; i++)
+        GreenfootImage image = new GreenfootImage(x * maxHearts, y);
+        for (int i = 0; i < hearts; i++)
         {
             image.drawImage(heart, i*x, 0);
         }
         setImage(image);
     }
     
-    public Health()
+    public Health(int units)
     {
+        hearts = units;
+        maxHearts = units;
         heart.scale(20,20); 
         updateLife(heart);
     }
     
     public int getHealth() 
     {
-        return units;
+        return hearts;
     }
     
     public void loseLife() 
     {
-        units--;
+        hearts--;
         updateLife(heart);
     }
     
     public void gainLife() 
     {
-        units++;
+        hearts++;
         updateLife(heart);
     }
     

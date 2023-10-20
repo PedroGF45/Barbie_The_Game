@@ -125,7 +125,7 @@ public class Player extends Actor
     
     public void isLost()
     {
-        if (health.units == 0) 
+        if (health.hearts == 0) 
         {
             System.out.print("You Lose");
             Maze newMaze = new Maze();

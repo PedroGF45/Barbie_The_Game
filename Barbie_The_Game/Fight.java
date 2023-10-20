@@ -1,21 +1,21 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Game here.
+ * Write a description of class Fight here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Game extends World
+public class Fight extends World
 {
 
     /**
-     * Constructor for objects of class Game.
+     * Constructor for objects of class Fight.
      * 
      */
-    public Game()
+    public Fight()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1); 
+        super(800, 800, 1); 
     }
 }

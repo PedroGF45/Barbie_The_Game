@@ -23,6 +23,8 @@ public class Ken extends Player
         updateHealth();
         respawn();
         isLost();
+        isTouchingGun();
+        shoot("L");
     }
     
     public Ken(Health health)

@@ -7,6 +7,7 @@ public class Player extends Actor
     public int tamanho = 13;
     private String key = Greenfoot.getKey();  
     private Health health;
+    private int ownsGun = 0;
     
     public Player(Health health)
     {
@@ -15,7 +16,6 @@ public class Player extends Actor
     
     public void act()
     {
-        
     }
     
     public void mover(String botao1, String botao2, String botao3, String botao4,GreenfootImage[] esquerda, GreenfootImage[] direita,GreenfootImage[] repouso )
@@ -65,6 +65,7 @@ public class Player extends Actor
             setImage(repouso[0]);
         }
     }
+    
     //sequencia de animações andar/morte
     public void animacao(GreenfootImage[] seqImagens){
         contImag++;
@@ -131,5 +132,19 @@ public class Player extends Actor
             Maze newMaze = new Maze();
             Greenfoot.setWorld(newMaze);
         }
+    }
+    
+    public void isTouchingGun()
+    {
+        if(isTouching(Gun.class) && ownsGun == 0){
+            removeTouching(Gun.class);
+            ownsGun = 1;
+        }
+    }
+    
+    public void shoot(String key){
+        if(ownsGun == 1 && Greenfoot.isKeyDown(key)){
+            bullet bullet = new bullet();
+        };
     }
 }

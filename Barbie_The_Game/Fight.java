@@ -8,7 +8,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Fight extends World
 {
-    private int bossHearts = 10;
     /**
      * Constructor for objects of class Fight.
      * 
@@ -22,9 +21,27 @@ public class Fight extends World
     
     public void prepare()
     {
-        Health bossHealth = new Health(bossHearts);
-        addObject(bossHealth, 650, 50);
-        Boss boss = new Boss(bossHealth);
-        addObject(boss,650,200);
+        //Health bossHealth = new Health(10);
+        //addObject(bossHealth, 650, 50);
+        //Boss boss = new Boss(bossHealth);
+        //addObject(boss,650,200);
+        Health barbieHealth = new Health(5);
+        addObject(barbieHealth, 50,705);
+        Barbie barbie = new Barbie(barbieHealth);
+        addObject(barbie, 50, 470);
+        Health kenHealth = new Health(5);
+        addObject(kenHealth, 50,10);
+        Ken ken = new Ken(kenHealth);
+        addObject(ken, 50, 150);
+        addObject(new Spider(),620, 15);
+        addObject(new Spider(),620, 350);
+        addObject(new Spider(),620, 650);
+        addObject(new Spider(),690, 150);
+        addObject(new Spider(),690, 450);
+        addObject(new Snake(),600, 170);
+        addObject(new Snake(),610, 490);
+        addObject(new Snake(),510, 410);
+        addObject(new Gun(), 250, 50);
+        addObject(new Gun(), 250, 650);
     }
 }

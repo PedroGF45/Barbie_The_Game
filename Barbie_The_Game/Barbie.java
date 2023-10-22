@@ -19,6 +19,8 @@ public class Barbie extends Player
         updateHealth();
         respawn();
         isLost();
+        isTouchingGun();
+        shoot("Space");
     }
     
     public Barbie(Health health)

@@ -31,7 +31,7 @@ public class History extends World
         getBackground().scale(getWidth() + 115, getHeight() + 115);
         
         timer = new Timer();
-        addObject(timer, 100, 50);
+        addObject(timer, 700, 750);
                
         BackgroundHistory history = new BackgroundHistory();
         addObject(history, getWidth()/2, getHeight()/2);

@@ -17,7 +17,8 @@ public class Play extends Button
     public Play()
     {
         GreenfootImage playBtn = getImage();
-        playBtn.scale(playBtn.getWidth()-1750, playBtn.getHeight()-1000);
-        setImage(playBtn);
+        Picture playImg = new Picture(playBtn);
+        //playBtn.scale(playBtn.getWidth()/10, playBtn.getHeight()/10);
+        //setImage(playBtn);
     }
 }

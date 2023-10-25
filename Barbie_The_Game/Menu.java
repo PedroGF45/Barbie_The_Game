@@ -23,21 +23,22 @@ public class Menu extends World
     private void prepare() 
     {
         // Add the logo image to the center of the screen
-        GreenfootImage logo = new GreenfootImage("../logo.png");
-        Picture logoImg = new Picture(logo);
+        Logo logoImg = new Logo();
         addObject(logoImg, getWidth()/2, getHeight()/3);    
         
         // Add the play button as image
         Play playImg = new Play();
-        addObject(playImg, getWidth()/2, 450); 
+        addObject(playImg, getWidth()/2, 475); 
         
         // Add the options button as image
         Options optionsImg = new Options();
-        addObject(optionsImg, getWidth()/2, 550);
+        addObject(optionsImg, getWidth()/2, 575);
         
         // Add the exit button as image
         Exit exitImg = new Exit();
-        addObject(exitImg, getWidth()/2, 650);
+        addObject(exitImg, getWidth()/2, 675);
+        
+        getBackground().scale(getWidth() + 115, getHeight() + 115);
     }
     
     // Do something when the user clicks Run/Act

@@ -8,8 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class History extends World
 {
-    private Timer timer;
-    private int textTimer;
+    public static Timer timer;
     /**
      * Constructor for objects of class History.
      * 
@@ -39,13 +38,17 @@ public class History extends World
     
     private void checkTime()
     {
-        textTimer++;
-        if (textTimer == 3600)
+        if (timer.getTimeInMinutes() == 1)
         {
            switchToGame(new Puzzle()); 
         }
-    }
-    
+        
+        if (timer.getTimeInSeconds() == 600)
+        {
+            Start startGame = new Start();
+            addObject(startGame, getWidth()/2, 650);
+        }
+    }     
     public void switchToGame(World world)
     {
         Greenfoot.setWorld(world);

@@ -11,13 +11,12 @@ public class Play extends Button
     public void act()
     {
         checkMouse();
-        checkClicked(new PlayerSelection(), new GreenfootSound("../start_game.mp3"));
+        checkClicked(new History(), new GreenfootSound("../start_game.mp3"));
     }
     
     public Play()
     {
         GreenfootImage playBtn = getImage();
-        playBtn.scale(playBtn.getWidth()-1750, playBtn.getHeight()-1000);
-        setImage(playBtn);
+        Picture playImg = new Picture(playBtn, 10);
     }
 }

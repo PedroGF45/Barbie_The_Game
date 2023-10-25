@@ -10,8 +10,9 @@ public class Picture extends Actor
 {
 
     // Add constructor to set an image
-    public Picture(GreenfootImage img)
+    public Picture(GreenfootImage img, int scale)
     {
+        img.scale(img.getWidth()/scale, img.getHeight()/scale);
         setImage(img);
     }
         

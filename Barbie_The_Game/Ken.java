@@ -23,6 +23,7 @@ public class Ken extends Player
         updateHealth();
         respawn();
         isLost();
+        hitPortalBoost();
         isTouchingGun();
         shoot("L");
     }

@@ -8,6 +8,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Puzzle extends World
 {
+    public static Score score;
+    
+    public static Health barbieHealth;
+    public static Barbie barbie;
+    
+    public static Health kenHealth;
+    public static Ken ken;
+    
     private int playerHearts = 5;
     
     public Puzzle()
@@ -20,31 +28,39 @@ public class Puzzle extends World
     public void prepare()
     {
         // Add timer
-        //addObject(History.timer, 725, 775);
-        
+        addObject(History.timer, 725, 775);
+
         // Add score
-        Portal portalScore = new Portal();
-        addObject(portalScore, getWidth()/2, 50);
-        
+        score = new Score();
+        addObject(score, getWidth()/2, 50);
+
         // Add Health bars and players
-        Health barbieHealth = new Health(playerHearts);
+        barbieHealth = new Health(playerHearts);
         addObject(barbieHealth, 110, 50);
-        
+
         GreenfootImage barbieIcon = new GreenfootImage("../barbie.png");
         Picture barbieIconImg = new Picture(barbieIcon, 20);
         addObject(barbieIconImg, 190, 50);
-        
-        Barbie barbie = new Barbie(barbieHealth);
+
+        barbie = new Barbie(barbieHealth);
         addObject(barbie,95,700); 
-        
-        Health kenHealth = new Health(playerHearts);
+
+        kenHealth = new Health(playerHearts);
         addObject(kenHealth, 700, 50);
-        
+
         GreenfootImage kenIcon = new GreenfootImage("../ken.png");
         Picture kenIconImg = new Picture(kenIcon, 15);
         addObject(kenIconImg, 620, 50);
-        
-        Ken ken = new Ken(kenHealth);
+
+        ken = new Ken(kenHealth);
         addObject(ken,725,75);
+        
+        PortalBoost portalBoost = new PortalBoost();
+        addObject(portalBoost,410,405);
+    }
+    
+    public void switchWorld(World world)
+    {
+        Greenfoot.setWorld(world);
     }
 }

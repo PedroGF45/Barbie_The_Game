@@ -203,7 +203,7 @@ public class Maze extends World
         addObject(square141,475,75);
         Square square142 = new Square();
         addObject(square142,375,225);
-        
+
         // Add speedboost, lifeboost
         SpeedBoost speedBoost = new SpeedBoost();
         addObject(speedBoost,74,574);
@@ -243,5 +243,30 @@ public class Maze extends World
         addObject(spider3,526,79);
         Spider spider4 = new Spider();
         addObject(spider4,571,429);
+
+        PortalBoost portalBoost = new PortalBoost();
+        addObject(portalBoost,410,400);
+        
+        addObject(History.timer, 725, 775);
+        
+        // Add score
+        addObject(Puzzle.score, getWidth()/2, 25);
+
+        // Add Health bars and players
+        addObject(Puzzle.barbieHealth, 110, 25);
+
+        GreenfootImage barbieIcon = new GreenfootImage("../barbie.png");
+        Picture barbieIconImg = new Picture(barbieIcon, 20);
+        addObject(barbieIconImg, 190, 25);
+
+        addObject(Puzzle.barbie,95,700); 
+
+        addObject(Puzzle.kenHealth, 700, 25);
+
+        GreenfootImage kenIcon = new GreenfootImage("../ken.png");
+        Picture kenIconImg = new Picture(kenIcon, 15);
+        addObject(kenIconImg, 620, 25);
+
+        addObject(Puzzle.ken,725,75);
     }
 }

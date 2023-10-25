@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Portal extends Actor
+public class Score extends Actor
 {
     public int portals = 3;
     public int gotPortals = 0;
@@ -27,7 +27,7 @@ public class Portal extends Actor
             }
             else
             {
-                portalImg.setTransparency(30);    
+                portalImg.setTransparency(70);    
             }
             image.drawImage(portalImg, i*x, 0);
             
@@ -35,7 +35,7 @@ public class Portal extends Actor
         setImage(image);
     }
     
-    public Portal()
+    public Score()
     {
         portalImg.scale(50,50); 
         updatePortal(portalImg);

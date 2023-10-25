@@ -17,8 +17,6 @@ public class Options extends Button
     public Options()
     {
         GreenfootImage optionBtn = getImage();
-        Picture optionImg = new Picture(optionBtn);
-        //optionBtn.scale(optionBtn.getWidth()/10, optionBtn.getHeight()/10);
-        //setImage(optionBtn);
+        Picture optionImg = new Picture(optionBtn, 10);
     }
 }

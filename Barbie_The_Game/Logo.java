@@ -11,7 +11,6 @@ public class Logo extends Button
     public Logo()
     {
         GreenfootImage logoBtn = getImage();
-        logoBtn.scale(logoBtn.getWidth()/6, logoBtn.getHeight()/6);
-        setImage(logoBtn);
+        Picture logoImg = new Picture(logoBtn, 6);
     }
 }

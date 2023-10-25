@@ -20,8 +20,6 @@ public class Exit extends Button
     public Exit()
     {
         GreenfootImage exitBtn = getImage();
-        Picture exit = new Picture(exitBtn);
-        //exitBtn.scale(exitBtn.getWidth()/10, exitBtn.getHeight()/10);
-        //setImage(exitBtn);
+        Picture exit = new Picture(exitBtn, 10);
     }
 }

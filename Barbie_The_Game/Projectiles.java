@@ -19,4 +19,9 @@ public class Projectiles extends Actor
         // Add your action code here.
     }
     
+    public void wallCollision(){
+        if(isAtEdge()){
+            getWorld().removeObject(this);
+        }
+    }
 }

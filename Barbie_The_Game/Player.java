@@ -1,4 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Player extends Actor
 {
@@ -8,6 +10,9 @@ public class Player extends Actor
     private String key = Greenfoot.getKey();  
     private Health health;
     private int ownsGun = 0;
+    public int projr;
+    Timer timer = new Timer();
+    public boolean cooldown = false;
     
     public Player(Health health)
     {
@@ -30,7 +35,7 @@ public class Player extends Actor
             if (isTouchingWalls()) move(speed);
             //setLocation(x-speed, y);
             animacao(esquerda);
-            
+            projr = 180;
         }
         // mover para cima
         else if(Greenfoot.isKeyDown (botao2))
@@ -39,7 +44,7 @@ public class Player extends Actor
             setLocation(x, y-speed);
             if (isTouchingWalls()) setLocation(x, y+speed);
             animacao(esquerda);
-            
+            projr = -90;
         }
         //mover para baixo
         else if(Greenfoot.isKeyDown (botao3))
@@ -48,7 +53,7 @@ public class Player extends Actor
             setLocation(x, y+speed);
             if (isTouchingWalls()) setLocation(x, y-speed);
             animacao(direita);
-            
+            projr = 90;
         }
         //mover para a direita
         else if(Greenfoot.isKeyDown (botao4))
@@ -57,7 +62,7 @@ public class Player extends Actor
             if (isTouchingWalls()) move(-speed);
             //setLocation(x+speed, y);
             animacao(direita);
-            
+            projr = 0;
         }
         //if(key==null){
         else 
@@ -143,8 +148,13 @@ public class Player extends Actor
     }
     
     public void shoot(String key){
-        if(ownsGun == 1 && Greenfoot.isKeyDown(key)){
-            bullet bullet = new bullet();
+        if(ownsGun == 1 && Greenfoot.isKeyDown(key) && cooldown==false){
+            World world = getWorld();
+            bullet bullet1 = new bullet();
+            world.addObject(bullet1,getX(),getY());
+            bullet1.setRotation(projr);
+            cooldown = true;
+            timer.schedule(new TimerTask(){public void run(){cooldown = false;}}, 1600);
         };
     }
 }

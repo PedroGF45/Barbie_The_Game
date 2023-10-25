@@ -16,5 +16,10 @@ public class bullet extends Projectiles
     public void act()
     {
         move(speed);
+        wallCollision();
+    }
+    
+    public bullet(){
+        
     }
 }

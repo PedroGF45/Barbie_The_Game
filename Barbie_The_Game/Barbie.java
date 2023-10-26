@@ -18,10 +18,11 @@ public class Barbie extends Player
         hitLifeBoost();
         updateHealth();
         respawn();
-        isLost();
         hitPortalBoost();
         isTouchingGun();
         shoot("Space");
+        lostGame();
+        wonGame();
     }
     
     public Barbie(Health health)

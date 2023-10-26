@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class History extends World
 {
-    public static Timer timer;
+    private Time time;
     /**
      * Constructor for objects of class History.
      * 
@@ -25,12 +25,12 @@ public class History extends World
         checkTime();
     }
     
-    public void prepare()
+    private void prepare()
     {
         getBackground().scale(getWidth() + 115, getHeight() + 115);
         
-        timer = new Timer();
-        addObject(timer, 725, 775);
+        time = new Time();
+        addObject(time, 725, 775);
                
         BackgroundHistory history = new BackgroundHistory();
         addObject(history, getWidth()/2, getHeight()/2);
@@ -38,17 +38,23 @@ public class History extends World
     
     private void checkTime()
     {
-        if (timer.getTimeInMinutes() == 1)
+        if (time.getTimeInMinutes() == 1)
         {
-           switchToGame(new Puzzle()); 
+           switchToGame(new Puzzle(time)); 
         }
         
-        if (timer.getTimeInSeconds() == 600)
+        if (time.getTimeInSeconds() == 600)
         {
             Start startGame = new Start();
             addObject(startGame, getWidth()/2, 650);
         }
-    }     
+    }   
+    
+    public Time getTime()
+    {
+        return time;
+    }
+    
     public void switchToGame(World world)
     {
         Greenfoot.setWorld(world);

@@ -1,30 +1,30 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Return here.
+ * Write a description of class No here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Return extends Button
+public class No extends Button
 {
     /**
-     * Act - do whatever the Restart wants to do. This method is called whenever
+     * Act - do whatever the No wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()
     {
         checkMouse();
-        checkClicked(new GreenfootSound("../start_game.mp3"));
+        checkClicked( new GreenfootSound("../start_game.mp3"));
     }
     
-    public Return()
+    public No()
     {
-        GreenfootImage returnBtn = getImage();
-        Picture returnImg = new Picture(returnBtn, 5);
+        GreenfootImage noBtn = getImage();
+        Picture noImg = new Picture(noBtn, 5);
     }
     
-    private void checkClicked(GreenfootSound sound)
+    public void checkClicked(GreenfootSound sound)
     {
         if (Greenfoot.mouseClicked(this))
         {

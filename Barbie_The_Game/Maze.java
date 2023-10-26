@@ -1,4 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.ArrayList;
+import java.util.Collections;
+import javafx.util.Pair; // Import Pair from the JavaFX library
 /**
  * Write a description of class Labirinto here.
  * 
@@ -8,12 +11,34 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Maze extends World
 {
     public int imageSize = 50;
+    private Time time;
+    private Score score;
+    private Health barbieHealth;
+    private Barbie barbie;
+    private Health kenHealth;
+    private Ken ken;
+    
+    private ArrayList<Pair<Integer, Integer>> coordinates;
     /**
      * Constructor for objects of class Maze.
      * 
      */
-    public Maze() {
+    public Maze(Health barbieHealth, Barbie barbie, Health kenHealth, Ken ken, Score score, Time time) {
         super(800, 800, 1);
+        
+        this.barbieHealth = barbieHealth;
+        this.barbie = barbie;
+        this.kenHealth = kenHealth;
+        this.ken = ken;
+        this.score = score;
+        this.time = time;
+        
+        coordinates = new ArrayList<>();
+        coordinates.add(new Pair<>(75, 75));
+        coordinates.add(new Pair<>(75, 700));
+        coordinates.add(new Pair<>(725, 75));
+        coordinates.add(new Pair<>(725, 700));
+        
         prepare();
     }
 
@@ -247,26 +272,66 @@ public class Maze extends World
         PortalBoost portalBoost = new PortalBoost();
         addObject(portalBoost,410,400);
         
-        addObject(History.timer, 725, 775);
+        // Add time
+        addObject(time, 725, 775);
         
         // Add score
-        addObject(Puzzle.score, getWidth()/2, 25);
+        addObject(score, getWidth()/2, 25);
 
         // Add Health bars and players
-        addObject(Puzzle.barbieHealth, 110, 25);
-
+        
+        addObject(barbieHealth, 110, 25);
+        
         GreenfootImage barbieIcon = new GreenfootImage("../barbie.png");
         Picture barbieIconImg = new Picture(barbieIcon, 20);
         addObject(barbieIconImg, 190, 25);
-
-        addObject(Puzzle.barbie,95,700); 
-
-        addObject(Puzzle.kenHealth, 700, 25);
+        
+        addObject(kenHealth, 700, 25);
 
         GreenfootImage kenIcon = new GreenfootImage("../ken.png");
         Picture kenIconImg = new Picture(kenIcon, 15);
         addObject(kenIconImg, 620, 25);
 
-        addObject(Puzzle.ken,725,75);
+        // Shuffle the list of coordinates to randomize the order
+        Collections.shuffle(coordinates);
+
+        // Pop the first 2 coordinates from the shuffled list
+        Pair<Integer, Integer> coord1 = coordinates.get(0);
+        Pair<Integer, Integer> coord2 = coordinates.get(1);
+
+        // Add objects at the selected coordinates
+        addObject(barbie, coord1.getKey(), coord1.getValue());
+        addObject(ken, coord2.getKey(), coord2.getValue());
+
+    }
+    
+    public Barbie getBarbie()
+    {
+        return barbie;
+    }
+    
+    public Health getBarbieHealth()
+    {
+        return barbieHealth;
+    }
+    
+    public Ken getKen()
+    {
+        return ken;
+    }
+    
+    public Health getKenHealth()
+    {
+        return kenHealth;
+    }
+    
+    public Score getScore()
+    {
+        return score;
+    }
+    
+    public Time getTime()
+    {
+        return time;
     }
 }

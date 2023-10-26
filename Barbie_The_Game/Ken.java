@@ -76,9 +76,18 @@ public class Ken extends Player
     }
     
     private void respawn() {
+        World currentWorld = getWorld();
         if (isTouchingEnemy())
         {
-            setLocation(((Maze)getWorld()).getCoordKen().getKey(),((Maze)getWorld()).getCoordKen().getValue());  
+            if (currentWorld instanceof Maze)
+            {
+               setLocation(((Maze)getWorld()).getCoordBarbie().getKey(), ((Maze)getWorld()).getCoordBarbie().getValue()); 
+            }
+            else if (currentWorld instanceof Fight)
+            {
+                setLocation(200, 200);
+            }
+              
         }
     }
     

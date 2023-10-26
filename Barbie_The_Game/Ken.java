@@ -85,4 +85,5 @@ public class Ken extends Player
             setLocation(725,75);  
         }
     }
+    
 }

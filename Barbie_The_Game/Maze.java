@@ -48,6 +48,9 @@ public class Maze extends World
     // act() method: waits for all tracers to remove themselves, then connects the individual areas created by the tracers
     private void prepare()
     {
+        // Scales the image to fit in the screen
+        getBackground().scale(getWidth() + 115, getHeight() + 115);
+        
         int counter = 0;
         // top border 
         for (int i = imageSize / 2; i < getWidth(); i+=imageSize) {

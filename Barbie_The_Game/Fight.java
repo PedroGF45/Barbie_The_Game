@@ -36,6 +36,9 @@ public class Fight extends World
     
     public void prepare()
     {
+        // Scales the image to fit in the screen
+        getBackground().scale(getWidth() + 115, getHeight() + 115);
+        
         //Health bossHealth = new Health(10);
         //addObject(bossHealth, 650, 50);
         //Boss boss = new Boss(bossHealth);

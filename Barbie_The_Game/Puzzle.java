@@ -28,6 +28,9 @@ public class Puzzle extends World
     
     public void prepare()
     {
+        // Scales the image to fit in the screen
+        getBackground().scale(getWidth() + 115, getHeight() + 115);
+        
         // Add time
         addObject(time, 725, 775);
 

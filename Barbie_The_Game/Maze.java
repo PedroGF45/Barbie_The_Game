@@ -18,7 +18,10 @@ public class Maze extends World
     private Health kenHealth;
     private Ken ken;
     
+    // Variables to get random coordinates for Barbie and Ken
     private ArrayList<Pair<Integer, Integer>> coordinates;
+    private Pair<Integer, Integer> coordBarbie;
+    private Pair<Integer, Integer> coordKen;
     /**
      * Constructor for objects of class Maze.
      * 
@@ -296,18 +299,26 @@ public class Maze extends World
         Collections.shuffle(coordinates);
 
         // Pop the first 2 coordinates from the shuffled list
-        Pair<Integer, Integer> coord1 = coordinates.get(0);
-        Pair<Integer, Integer> coord2 = coordinates.get(1);
+        coordBarbie = coordinates.get(0);
+        coordKen = coordinates.get(1);
 
         // Add objects at the selected coordinates
-        addObject(barbie, coord1.getKey(), coord1.getValue());
-        addObject(ken, coord2.getKey(), coord2.getValue());
+        addObject(barbie, coordBarbie.getKey(), coordBarbie.getValue());
+        addObject(ken, coordKen.getKey(), coordKen.getValue());
 
     }
     
     public Barbie getBarbie()
     {
         return barbie;
+    }
+    
+    public Pair<Integer, Integer> getCoordBarbie(){
+        return coordBarbie;
+    }
+    
+    public Pair<Integer, Integer> getCoordKen(){
+        return coordKen;
     }
     
     public Health getBarbieHealth()

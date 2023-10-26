@@ -24,7 +24,7 @@ public class Exit extends Button
     {
         if (Greenfoot.mouseClicked(this))
         {
-            ((Menu)getWorld()).stopped();
+            Menu.soundtrack.stop();
             Greenfoot.stop();
         }
     }

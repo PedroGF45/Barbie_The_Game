@@ -24,6 +24,8 @@ public class WonGame extends World
     
     private void prepare()
     {
+        getBackground().scale(getWidth() + 115, getHeight() + 115);
+        
         GreenfootImage gameWin = new GreenfootImage("../gameWin.png");
         Picture gameWinImg = new Picture(gameWin, 1);
         addObject(gameWinImg, getWidth()/2, 150);

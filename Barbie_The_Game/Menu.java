@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Menu extends World
 {
     // Add a soundtrack in the menu
-    private GreenfootSound soundtrack = new GreenfootSound("../soundtrack.mp3");
+    public static GreenfootSound soundtrack = new GreenfootSound("../soundtrack.mp3");
     
     public Menu()
     {    

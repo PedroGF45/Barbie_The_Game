@@ -27,6 +27,7 @@ public class Yes extends Button
         this.currentScore = score;
     }
     
+    // @override
     public void checkClicked(GreenfootSound sound)
     {
         if (Greenfoot.mouseClicked(this))

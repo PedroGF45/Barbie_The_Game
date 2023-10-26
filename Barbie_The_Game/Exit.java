@@ -20,7 +20,8 @@ public class Exit extends Button
         Picture exit = new Picture(exitBtn, 10);
     }
     
-    private void checkClicked(GreenfootSound sound)
+    // @override
+    public void checkClicked(GreenfootSound sound)
     {
         if (Greenfoot.mouseClicked(this))
         {

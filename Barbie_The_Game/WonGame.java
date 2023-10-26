@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class WonGame extends World
 {
 
+    // Initialize score and time variables
     private Score score;
     private Time time;
     

@@ -5,4 +5,6 @@ comment1.params=
 comment1.target=void\ act()
 comment2.params=
 comment2.target=Exit()
-numComments=3
+comment3.params=sound
+comment3.target=void\ checkClicked(greenfoot.GreenfootSound)
+numComments=4

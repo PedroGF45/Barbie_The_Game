@@ -83,7 +83,7 @@ public class Ken extends Player
     private void respawn() {
         if (isTouchingEnemy())
         {
-            setLocation(725,75);  
+            setLocation(((Maze)getWorld()).getCoordKen().getKey(),((Maze)getWorld()).getCoordKen().getValue());  
         }
     }
     

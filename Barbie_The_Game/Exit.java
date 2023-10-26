@@ -11,15 +11,21 @@ public class Exit extends Button
     public void act()
     {
         checkMouse();
-        if (Greenfoot.mouseClicked(this))
-        {
-            Greenfoot.stop();
-        }
+        checkClicked(new GreenfootSound("../start_game.mp3"));
     }
     
     public Exit()
     {
         GreenfootImage exitBtn = getImage();
         Picture exit = new Picture(exitBtn, 10);
+    }
+    
+    private void checkClicked(GreenfootSound sound)
+    {
+        if (Greenfoot.mouseClicked(this))
+        {
+            ((Menu)getWorld()).stopped();
+            Greenfoot.stop();
+        }
     }
 }

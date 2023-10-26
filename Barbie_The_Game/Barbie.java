@@ -79,7 +79,7 @@ public class Barbie extends Player
     private void respawn() {
         if (isTouchingEnemy())
         {
-            setLocation(95,700);  
+            setLocation(((Maze)getWorld()).getCoordBarbie().getKey(),((Maze)getWorld()).getCoordBarbie().getValue());  
         }
     }
 }

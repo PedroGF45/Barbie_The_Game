@@ -1,4 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.ArrayList;
+import java.util.Collections;
+import javafx.util.Pair; // Import Pair from the JavaFX library
 /**
  * Write a description of class Labirinto here.
  * 
@@ -14,18 +17,28 @@ public class Maze extends World
     private Barbie barbie;
     private Health kenHealth;
     private Ken ken;
+    
+    private ArrayList<Pair<Integer, Integer>> coordinates;
     /**
      * Constructor for objects of class Maze.
      * 
      */
     public Maze(Health barbieHealth, Barbie barbie, Health kenHealth, Ken ken, Score score, Time time) {
         super(800, 800, 1);
+        
         this.barbieHealth = barbieHealth;
         this.barbie = barbie;
         this.kenHealth = kenHealth;
         this.ken = ken;
         this.score = score;
         this.time = time;
+        
+        coordinates = new ArrayList<>();
+        coordinates.add(new Pair<>(75, 75));
+        coordinates.add(new Pair<>(75, 700));
+        coordinates.add(new Pair<>(725, 75));
+        coordinates.add(new Pair<>(725, 700));
+        
         prepare();
     }
 
@@ -273,17 +286,22 @@ public class Maze extends World
         Picture barbieIconImg = new Picture(barbieIcon, 20);
         addObject(barbieIconImg, 190, 25);
         
-        
-        addObject(barbie,95,700); 
-
-        
         addObject(kenHealth, 700, 25);
 
         GreenfootImage kenIcon = new GreenfootImage("../ken.png");
         Picture kenIconImg = new Picture(kenIcon, 15);
         addObject(kenIconImg, 620, 25);
 
-        addObject(ken,725,75);
+        // Shuffle the list of coordinates to randomize the order
+        Collections.shuffle(coordinates);
+
+        // Pop the first 2 coordinates from the shuffled list
+        Pair<Integer, Integer> coord1 = coordinates.get(0);
+        Pair<Integer, Integer> coord2 = coordinates.get(1);
+
+        // Add objects at the selected coordinates
+        addObject(barbie, coord1.getKey(), coord1.getValue());
+        addObject(ken, coord2.getKey(), coord2.getValue());
 
     }
     

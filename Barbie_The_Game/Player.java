@@ -119,7 +119,7 @@ public class Player extends Actor
     
     public void updateHealth()
     {
-        if (isTouchingEnemy()) {
+        if (isTouchingEnemy() || isTouching(rock.class)) {
             health.loseLife();
         }
     }

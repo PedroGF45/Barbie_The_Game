@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Fight extends World
 {
+    private int phase = 1;
     /**
      * Constructor for objects of class Fight.
      * 
@@ -19,12 +20,12 @@ public class Fight extends World
         prepare();
     }
     
+    public void act(){
+        phaseTransition();
+    }
+    
     public void prepare()
     {
-        //Health bossHealth = new Health(10);
-        //addObject(bossHealth, 650, 50);
-        //Boss boss = new Boss(bossHealth);
-        //addObject(boss,650,200);
         Health barbieHealth = new Health(5);
         addObject(barbieHealth, 50,705);
         Barbie barbie = new Barbie(barbieHealth);
@@ -43,5 +44,28 @@ public class Fight extends World
         addObject(new Snake(),510, 410);
         addObject(new Gun(), 250, 50);
         addObject(new Gun(), 250, 650);
+    }
+    
+    public void spawnBoss(){
+        Health bossHealth = new Health(10);
+        addObject(bossHealth, 650, 50);
+        Boss boss = new Boss(bossHealth);
+        addObject(boss,700,100);
+    }
+    
+    public void spawnPortal(){
+        
+    }
+    
+    public void phaseTransition(){
+        bullet bullet = new bullet();
+        if(phase == 1 && bullet.kills == 8){
+            spawnBoss();
+            phase++;
+        }
+        if(phase == 2 && bullet.kills == 9){
+            spawnPortal();
+            phase++;
+        }
     }
 }

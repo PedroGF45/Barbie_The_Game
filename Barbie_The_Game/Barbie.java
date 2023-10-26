@@ -19,6 +19,7 @@ public class Barbie extends Player
         updateHealth();
         respawn();
         isLost();
+        hitPortalBoost();
         isTouchingGun();
         shoot("Space");
     }

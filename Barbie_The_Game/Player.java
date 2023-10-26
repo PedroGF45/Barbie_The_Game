@@ -117,6 +117,25 @@ public class Player extends Actor
         }
     }
     
+    public void hitPortalBoost()
+    {
+        if (isTouching(PortalBoost.class))
+        {
+            Puzzle.score.gainPortal();
+            removeTouching(PortalBoost.class);
+            
+            World currentWorld = getWorld();
+            if (currentWorld instanceof Puzzle)
+            {
+                Greenfoot.setWorld(new Maze());
+            }
+            else if (currentWorld instanceof Maze)
+            {
+                Greenfoot.setWorld(new Fight());
+            }
+        }
+    }
+    
     public void updateHealth()
     {
         if (isTouchingEnemy()) {

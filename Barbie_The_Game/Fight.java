@@ -25,14 +25,28 @@ public class Fight extends World
         //addObject(bossHealth, 650, 50);
         //Boss boss = new Boss(bossHealth);
         //addObject(boss,650,200);
-        Health barbieHealth = new Health(5);
-        addObject(barbieHealth, 50,705);
-        Barbie barbie = new Barbie(barbieHealth);
-        addObject(barbie, 50, 470);
-        Health kenHealth = new Health(5);
-        addObject(kenHealth, 50,10);
-        Ken ken = new Ken(kenHealth);
-        addObject(ken, 50, 150);
+        addObject(History.timer, 725, 775);
+        
+        // Add score
+        addObject(Puzzle.score, getWidth()/2, 25);
+
+        // Add Health bars and players
+        addObject(Puzzle.barbieHealth, 110, 25);
+
+        GreenfootImage barbieIcon = new GreenfootImage("../barbie.png");
+        Picture barbieIconImg = new Picture(barbieIcon, 20);
+        addObject(barbieIconImg, 190, 25);
+
+        addObject(Puzzle.barbie,95,700); 
+
+        addObject(Puzzle.kenHealth, 700, 25);
+
+        GreenfootImage kenIcon = new GreenfootImage("../ken.png");
+        Picture kenIconImg = new Picture(kenIcon, 15);
+        addObject(kenIconImg, 620, 25);
+
+        addObject(Puzzle.ken,725,75);
+        
         addObject(new Spider(),620, 15);
         addObject(new Spider(),620, 350);
         addObject(new Spider(),620, 650);

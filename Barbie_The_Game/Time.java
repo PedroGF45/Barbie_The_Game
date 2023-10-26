@@ -6,12 +6,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Timer extends Actor
+public class Time extends Actor
 {
     private int timeInSeconds; // The time counter in seconds
     private int timeInMinutes; // The time counter in minutes
 
-    public Timer() {
+    public Time() {
         timeInSeconds = 0;
         updateImage();
     }

@@ -121,17 +121,36 @@ public class Player extends Actor
     {
         if (isTouching(PortalBoost.class))
         {
-            Puzzle.score.gainPortal();
-            removeTouching(PortalBoost.class);
-            
             World currentWorld = getWorld();
             if (currentWorld instanceof Puzzle)
             {
-                Greenfoot.setWorld(new Maze());
+                // Retrieve Barbie and Ken from the current world
+                Barbie barbie = ((Puzzle) getWorld()).getBarbie();
+                Health barbieHealth = ((Puzzle) getWorld()).getBarbieHealth();
+                Ken ken = ((Puzzle) getWorld()).getKen();
+                Health kenHealth = ((Puzzle) getWorld()).getKenHealth();
+                Score score = ((Puzzle) getWorld()).getScore();
+                score.gainPortal();
+                removeTouching(PortalBoost.class);
+                Time time = ((Puzzle) getWorld()).getTime();
+                Greenfoot.setWorld(new Maze(barbieHealth, barbie, kenHealth, ken, score, time));
             }
             else if (currentWorld instanceof Maze)
             {
-                Greenfoot.setWorld(new Fight());
+                // Retrieve Barbie and Ken from the current world
+                Barbie barbie = ((Maze) getWorld()).getBarbie();
+                Health barbieHealth = ((Maze) getWorld()).getBarbieHealth();
+                Ken ken = ((Maze) getWorld()).getKen();
+                Health kenHealth = ((Maze) getWorld()).getKenHealth();
+                Score score = ((Maze) getWorld()).getScore();
+                score.gainPortal();
+                removeTouching(PortalBoost.class);
+                Time time = ((Maze) getWorld()).getTime();
+                Greenfoot.setWorld(new Fight(barbieHealth, barbie, kenHealth, ken, score, time));
+            }
+            else if (currentWorld instanceof Fight)
+            {
+                //youWin
             }
         }
     }
@@ -152,9 +171,21 @@ public class Player extends Actor
     {
         if (health.hearts == 0) 
         {
-            System.out.print("You Lose");
-            Maze newMaze = new Maze();
-            Greenfoot.setWorld(newMaze);
+            World world = getWorld();
+            if (world instanceof Maze)
+            {
+                // Retrieve Barbie and Ken from the current world
+                Score score = ((Maze) getWorld()).getScore();
+                Time time = ((Maze) getWorld()).getTime();
+                Greenfoot.setWorld(new LostGame(world, score, time));
+            }
+            else if (world instanceof Fight)
+            {
+                // Retrieve Barbie and Ken from the current world
+                Score score = ((Fight) getWorld()).getScore();
+                Time time = ((Fight) getWorld()).getTime();
+                Greenfoot.setWorld(new LostGame(world, score, time));
+            }
         }
     }
     
@@ -176,4 +207,5 @@ public class Player extends Actor
             timer.schedule(new TimerTask(){public void run(){cooldown = false;}}, 1600);
         };
     }
+
 }

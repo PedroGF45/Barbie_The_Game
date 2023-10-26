@@ -8,12 +8,24 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Maze extends World
 {
     public int imageSize = 50;
+    private Time time;
+    private Score score;
+    private Health barbieHealth;
+    private Barbie barbie;
+    private Health kenHealth;
+    private Ken ken;
     /**
      * Constructor for objects of class Maze.
      * 
      */
-    public Maze() {
+    public Maze(Health barbieHealth, Barbie barbie, Health kenHealth, Ken ken, Score score, Time time) {
         super(800, 800, 1);
+        this.barbieHealth = barbieHealth;
+        this.barbie = barbie;
+        this.kenHealth = kenHealth;
+        this.ken = ken;
+        this.score = score;
+        this.time = time;
         prepare();
     }
 
@@ -247,26 +259,61 @@ public class Maze extends World
         PortalBoost portalBoost = new PortalBoost();
         addObject(portalBoost,410,400);
         
-        addObject(History.timer, 725, 775);
+        // Add time
+        addObject(time, 725, 775);
         
         // Add score
-        addObject(Puzzle.score, getWidth()/2, 25);
+        addObject(score, getWidth()/2, 25);
 
         // Add Health bars and players
-        addObject(Puzzle.barbieHealth, 110, 25);
-
+        
+        addObject(barbieHealth, 110, 25);
+        
         GreenfootImage barbieIcon = new GreenfootImage("../barbie.png");
         Picture barbieIconImg = new Picture(barbieIcon, 20);
         addObject(barbieIconImg, 190, 25);
+        
+        
+        addObject(barbie,95,700); 
 
-        addObject(Puzzle.barbie,95,700); 
-
-        addObject(Puzzle.kenHealth, 700, 25);
+        
+        addObject(kenHealth, 700, 25);
 
         GreenfootImage kenIcon = new GreenfootImage("../ken.png");
         Picture kenIconImg = new Picture(kenIcon, 15);
         addObject(kenIconImg, 620, 25);
 
-        addObject(Puzzle.ken,725,75);
+        addObject(ken,725,75);
+
+    }
+    
+    public Barbie getBarbie()
+    {
+        return barbie;
+    }
+    
+    public Health getBarbieHealth()
+    {
+        return barbieHealth;
+    }
+    
+    public Ken getKen()
+    {
+        return ken;
+    }
+    
+    public Health getKenHealth()
+    {
+        return kenHealth;
+    }
+    
+    public Score getScore()
+    {
+        return score;
+    }
+    
+    public Time getTime()
+    {
+        return time;
     }
 }

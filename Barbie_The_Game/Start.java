@@ -24,7 +24,7 @@ public class Start extends Button
     {
         if (Greenfoot.mouseClicked(this))
         {
-            Greenfoot.setWorld(new Puzzle());
+            Greenfoot.setWorld(new Puzzle(((History)getWorld()).getTime()));
             sound.play();
         }
     }

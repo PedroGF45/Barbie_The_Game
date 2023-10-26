@@ -8,14 +8,26 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Fight extends World
 {
+    private Time time;
+    private Score score;
+    private Health barbieHealth;
+    private Barbie barbie;
+    private Health kenHealth;
+    private Ken ken;
     /**
      * Constructor for objects of class Fight.
      * 
      */
-    public Fight()
+    public Fight(Health barbieHealth, Barbie barbie, Health kenHealth, Ken ken, Score score, Time time)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 800, 1); 
+        this.barbieHealth = barbieHealth;
+        this.barbie = barbie;
+        this.kenHealth = kenHealth;
+        this.ken = ken;
+        this.score = score;
+        this.time = time;
         prepare();
     }
     
@@ -25,27 +37,27 @@ public class Fight extends World
         //addObject(bossHealth, 650, 50);
         //Boss boss = new Boss(bossHealth);
         //addObject(boss,650,200);
-        addObject(History.timer, 725, 775);
+        addObject(time, 725, 775);
         
         // Add score
-        addObject(Puzzle.score, getWidth()/2, 25);
+        addObject(score, getWidth()/2, 25);
 
         // Add Health bars and players
-        addObject(Puzzle.barbieHealth, 110, 25);
+        addObject(barbieHealth, 110, 25);
 
         GreenfootImage barbieIcon = new GreenfootImage("../barbie.png");
         Picture barbieIconImg = new Picture(barbieIcon, 20);
         addObject(barbieIconImg, 190, 25);
 
-        addObject(Puzzle.barbie,95,700); 
+        addObject(barbie,95,700); 
 
-        addObject(Puzzle.kenHealth, 700, 25);
+        addObject(kenHealth, 700, 25);
 
         GreenfootImage kenIcon = new GreenfootImage("../ken.png");
         Picture kenIconImg = new Picture(kenIcon, 15);
         addObject(kenIconImg, 620, 25);
 
-        addObject(Puzzle.ken,725,75);
+        addObject(ken,725,75);
         
         addObject(new Spider(),620, 15);
         addObject(new Spider(),620, 350);
@@ -57,5 +69,35 @@ public class Fight extends World
         addObject(new Snake(),510, 410);
         addObject(new Gun(), 250, 50);
         addObject(new Gun(), 250, 650);
+    }
+    
+    public Barbie getBarbie()
+    {
+        return barbie;
+    }
+    
+    public Health getBarbieHealth()
+    {
+        return barbieHealth;
+    }
+    
+    public Ken getKen()
+    {
+        return ken;
+    }
+    
+    public Health getKenHealth()
+    {
+        return kenHealth;
+    }
+    
+    public Score getScore()
+    {
+        return score;
+    }
+    
+    public Time getTime()
+    {
+        return time;
     }
 }

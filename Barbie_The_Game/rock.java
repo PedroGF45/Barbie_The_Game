@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class rock extends Projectiles
 {
-    private int speed = 5;
+    private int speed = 8;
     /**
      * Act - do whatever the rocks wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -16,5 +16,6 @@ public class rock extends Projectiles
     public void act()
     {
         move(speed);
+        wallCollision();
     }
 }

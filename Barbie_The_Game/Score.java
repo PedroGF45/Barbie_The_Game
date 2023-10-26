@@ -8,8 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Score extends Actor
 {
-    public int portals = 3;
-    public int gotPortals = 0;
+    private int portals = 3;
+    private int gotPortals = 0;
     
     GreenfootImage portalImg = new GreenfootImage("../portal.png");
       
@@ -41,7 +41,7 @@ public class Score extends Actor
         updatePortal(portalImg);
     }
     
-    public int getScore() 
+    public int getPortals() 
     {
         return gotPortals;
     }

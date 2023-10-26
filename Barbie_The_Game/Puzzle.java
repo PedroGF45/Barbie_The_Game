@@ -8,27 +8,28 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Puzzle extends World
 {
-    public static Score score;
-    
-    public static Health barbieHealth;
-    public static Barbie barbie;
-    
-    public static Health kenHealth;
-    public static Ken ken;
-    
+       
     private int playerHearts = 5;
     
-    public Puzzle()
+    private Time time;
+    private Score score;
+    private Health barbieHealth;
+    private Barbie barbie;
+    private Health kenHealth;
+    private Ken ken;
+    
+    public Puzzle(Time time)
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+        // Create a new world with 800x800 cells with a cell size of 1x1 pixels.
         super(800, 800, 1); 
+        this.time = time;
         prepare();
     }
     
     public void prepare()
     {
-        // Add timer
-        addObject(History.timer, 725, 775);
+        // Add time
+        addObject(time, 725, 775);
 
         // Add score
         score = new Score();
@@ -57,6 +58,36 @@ public class Puzzle extends World
         
         PortalBoost portalBoost = new PortalBoost();
         addObject(portalBoost,410,405);
+    }
+    
+    public Barbie getBarbie()
+    {
+        return barbie;
+    }
+    
+    public Health getBarbieHealth()
+    {
+        return barbieHealth;
+    }
+    
+    public Ken getKen()
+    {
+        return ken;
+    }
+    
+    public Health getKenHealth()
+    {
+        return kenHealth;
+    }
+    
+    public Score getScore()
+    {
+        return score;
+    }
+    
+    public Time getTime()
+    {
+        return time;
     }
     
     public void switchWorld(World world)

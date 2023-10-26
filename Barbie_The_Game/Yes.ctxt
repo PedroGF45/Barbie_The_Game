@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Yes
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Yes\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=void\ act()
+comment2.params=world\ time\ score
+comment2.target=Yes(greenfoot.World,\ Time,\ Score)
+comment3.params=sound
+comment3.target=void\ checkClicked(greenfoot.GreenfootSound)
+numComments=4

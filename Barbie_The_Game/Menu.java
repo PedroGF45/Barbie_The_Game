@@ -8,7 +8,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Menu extends World
 {
-    public static World menu;
     // Add a soundtrack in the menu
     private GreenfootSound soundtrack = new GreenfootSound("../soundtrack.mp3");
     
@@ -16,7 +15,6 @@ public class Menu extends World
     {    
         // Create a new world with 1080x720 cells with a cell size of 1x1 pixels.
         super(800, 800, 1); 
-        menu = this;
         // Prepares the world before hitting Run/Act
         prepare();
     }

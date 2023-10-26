@@ -9,13 +9,31 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class WonGame extends World
 {
 
-    /**
-     * Constructor for objects of class WonGame.
-     * 
-     */
-    public WonGame()
+    private Score score;
+    private Time time;
+    
+    public WonGame(Score score, Time time)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1); 
+        super(800, 800, 1); 
+        this.score = score;
+        this.time = time;
+        prepare();
+    }
+    
+    private void prepare()
+    {
+        GreenfootImage gameWin = new GreenfootImage("../gameWin.png");
+        Picture gameWinImg = new Picture(gameWin, 1);
+        addObject(gameWinImg, getWidth()/2, 150);
+        
+        addObject(score, getWidth()/2, 250);
+        
+        addObject(time, getWidth()/2, 300);
+        
+        Return restart = new Return();
+        restart.setImage(new GreenfootImage("../restart.png"));
+        addObject(restart, 500, 450);
+        addObject(new Exit(), 100, 400);
     }
 }

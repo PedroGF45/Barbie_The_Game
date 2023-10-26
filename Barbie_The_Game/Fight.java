@@ -69,6 +69,9 @@ public class Fight extends World
         addObject(new Snake(),510, 410);
         addObject(new Gun(), 250, 50);
         addObject(new Gun(), 250, 650);
+        
+        PortalBoost portalBoost = new PortalBoost();
+        addObject(portalBoost,getWidth()/2,getHeight()/2);
     }
     
     public Barbie getBarbie()

@@ -10,6 +10,7 @@ public class Time extends Actor
 {
     private int timeInSeconds; // The time counter in seconds
     private int timeInMinutes; // The time counter in minutes
+    public boolean stopTime = false;
 
     public Time() {
         timeInSeconds = 0;
@@ -18,19 +19,30 @@ public class Time extends Actor
 
     public void act() {
         // Increment the time counter every frame
-        timeInSeconds++;
+        updateTime(stopTime);
         updateImage();
     }
 
-    public int getTimeInSeconds() {
+    public int getTimeInSeconds() 
+    {
         return timeInSeconds;
     }
     
-    public int getTimeInMinutes() {
+    public int getTimeInMinutes() 
+    {
         return timeInMinutes;
     }
+    
+    public void updateTime(boolean stopTime)
+    {
+        if (!stopTime)
+        {
+            timeInSeconds++;
+        }
+    }
 
-    private void updateImage() {
+    private void updateImage() 
+    {
         int minutes = timeInMinutes;
         int seconds = timeInSeconds / 60;
         

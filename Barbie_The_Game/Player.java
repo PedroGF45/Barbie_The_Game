@@ -150,7 +150,12 @@ public class Player extends Actor
             }
             else if (currentWorld instanceof Fight)
             {
-                //youWin
+                Score score = ((Fight) getWorld()).getScore();
+                score.gainPortal();
+                removeTouching(PortalBoost.class);
+                Time time = ((Fight) getWorld()).getTime();
+                time.stopTime = true;
+                Greenfoot.setWorld(new WonGame(score, time));
             }
         }
     }
@@ -167,7 +172,7 @@ public class Player extends Actor
         return isTouching(Enemy.class);
     }
     
-    public void isLost()
+    public void lostGame()
     {
         if (health.hearts == 0) 
         {
@@ -186,6 +191,20 @@ public class Player extends Actor
                 Time time = ((Fight) getWorld()).getTime();
                 Greenfoot.setWorld(new LostGame(world, score, time));
             }
+        }
+    }
+    
+    public void wonGame()
+    {
+        World world = getWorld();        
+        if (world instanceof Fight)
+        {
+            Score score = ((Fight) getWorld()).getScore();
+            Time time = ((Fight) getWorld()).getTime();
+            if (score.getPortals() == 3)
+            {
+                Greenfoot.setWorld(new WonGame(score, time));
+            }            
         }
     }
     

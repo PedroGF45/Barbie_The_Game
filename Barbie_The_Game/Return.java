@@ -8,6 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Return extends Button
 {
+    /**
+     * Act - do whatever the Restart wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
     public void act()
     {
         checkMouse();
@@ -24,7 +28,7 @@ public class Return extends Button
     {
         if (Greenfoot.mouseClicked(this))
         {
-            Greenfoot.setWorld(Menu.menu);
+            Greenfoot.setWorld(new Menu());
             sound.play();
         }
     }

@@ -8,6 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Fight extends World
 {
+    private int phase = 1;
+
     private Time time;
     private Score score;
     private Health barbieHealth;
@@ -26,6 +28,10 @@ public class Fight extends World
         this.score = score;
         this.time = time;
         prepare();
+    }
+    
+    public void act(){
+        phaseTransition();
     }
     
     public void prepare()
@@ -99,5 +105,28 @@ public class Fight extends World
     public Time getTime()
     {
         return time;
+    }
+    
+    public void spawnBoss(){
+        Health bossHealth = new Health(10);
+        addObject(bossHealth, 650, 50);
+        Boss boss = new Boss(bossHealth);
+        addObject(boss,700,100);
+    }
+    
+    public void spawnPortal(){
+        
+    }
+    
+    public void phaseTransition(){
+        bullet bullet = new bullet();
+        if(phase == 1 && bullet.kills == 8){
+            spawnBoss();
+            phase++;
+        }
+        if(phase == 2 && bullet.kills == 9){
+            spawnPortal();
+            phase++;
+        }
     }
 }

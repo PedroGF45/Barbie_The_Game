@@ -161,10 +161,14 @@ public class Player extends Actor
         }
     }
     
-    public void updateHealth()
+    public void loseHealth()
     {
-        if (isTouchingEnemy() || isTouching(rock.class)) {
+        if (isTouchingEnemy() || isTouching(Rock.class)) {
             health.loseLife();
+        }
+        if (isTouching(Rock.class))
+        {
+            removeTouching(Rock.class);
         }
     }
     

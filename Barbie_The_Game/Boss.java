@@ -61,8 +61,8 @@ public class Boss extends Enemy
     }
     
     public void throwRocks(){
-        if(Greenfoot.getRandomNumber(20) == 0){
-            rock rock = new rock();
+        if(Greenfoot.getRandomNumber(40) == 0){
+            Rock rock = new Rock();
             getWorld().addObject(rock,getX(),getY());
             rock.turnTowards(target.getX(), target.getY());
         };

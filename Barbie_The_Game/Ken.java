@@ -16,11 +16,11 @@ public class Ken extends Player
         shoot("0");
         hitSpeedBoost();
         hitLifeBoost();
-        updateHealth();
         lostGame();
         wonGame();
         hitPortalBoost();
         isTouchingGun();
+        loseHealth();
         respawn();
     }
     
@@ -77,7 +77,7 @@ public class Ken extends Player
     
     private void respawn() {
         World currentWorld = getWorld();
-        if (isTouchingEnemy())
+        if (isTouchingEnemy() || isTouching(Rock.class))
         {
             if (currentWorld instanceof Maze)
             {

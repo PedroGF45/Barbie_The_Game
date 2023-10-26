@@ -16,11 +16,11 @@ public class Barbie extends Player
         shoot("Space");
         hitSpeedBoost();
         hitLifeBoost();
-        updateHealth();
         lostGame();
         wonGame();
         hitPortalBoost();
         isTouchingGun();
+        loseHealth();
         respawn();
     }
     
@@ -77,7 +77,7 @@ public class Barbie extends Player
     
     private void respawn() {
         World currentWorld = getWorld();
-        if (isTouchingEnemy())
+        if (isTouchingEnemy() || isTouching(Rock.class))
         {
             if (currentWorld instanceof Maze)
             {
@@ -87,7 +87,6 @@ public class Barbie extends Player
             {
                 setLocation(200, 600);
             }
-              
         }
     }
 }

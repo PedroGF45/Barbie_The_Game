@@ -36,16 +36,16 @@ public class Boss extends Enemy
     }
     
     public void touchingBullet(){
-        if(isTouching(bullet.class)){
+        if(isTouching(Bullet.class)){
             health.loseLife();
-            removeTouching(bullet.class);
+            removeTouching(Bullet.class);
         }
     }
     
     public void dead(){
         if(health.hearts == 0){
-            bullet bullet = new bullet();
-            bullet.kills++;
+            Bullet bullet = new Bullet();
+            ((Fight)getWorld()).increaseKills();
             getWorld().removeObject(this);
         }
     }

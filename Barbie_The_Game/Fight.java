@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Fight extends World
 {
     private int phase = 1;
+    private int kills = 0;
 
     private Time time;
     private Score score;
@@ -39,10 +40,6 @@ public class Fight extends World
         // Scales the image to fit in the screen
         getBackground().scale(getWidth() + 115, getHeight() + 115);
         
-        //Health bossHealth = new Health(10);
-        //addObject(bossHealth, 650, 50);
-        //Boss boss = new Boss(bossHealth);
-        //addObject(boss,650,200);
         addObject(time, 725, 775);
         
         // Add score
@@ -75,9 +72,6 @@ public class Fight extends World
         addObject(new Snake(),510, 410);
         addObject(new Gun(), 250, 50);
         addObject(new Gun(), 250, 650);
-        
-        PortalBoost portalBoost = new PortalBoost();
-        addObject(portalBoost,getWidth()/2,getHeight()/2);
     }
     
     public Barbie getBarbie()
@@ -118,16 +112,27 @@ public class Fight extends World
     }
     
     public void spawnPortal(){
-        
+        PortalBoost portalBoost = new PortalBoost();
+        addObject(portalBoost,getWidth()/2,getHeight()/2);
+    }
+    
+    public void increaseKills()
+    {
+        kills++;
+    }
+    
+    public int getKills()
+    {
+        return kills;
     }
     
     public void phaseTransition(){
-        bullet bullet = new bullet();
-        if(phase == 1 && bullet.kills == 8){
+        Bullet bullet = new Bullet();
+        if(phase == 1 && getKills() == 8){
             spawnBoss();
             phase++;
         }
-        if(phase == 2 && bullet.kills == 9){
+        if(phase == 2 && getKills() == 9){
             spawnPortal();
             phase++;
         }

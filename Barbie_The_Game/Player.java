@@ -220,7 +220,7 @@ public class Player extends Actor
     public void shoot(String key){
         if(ownsGun == 1 && Greenfoot.isKeyDown(key) && cooldown==false){
             World world = getWorld();
-            bullet bullet1 = new bullet();
+            Bullet bullet1 = new Bullet();
             world.addObject(bullet1,getX(),getY());
             bullet1.setRotation(projr);
             cooldown = true;

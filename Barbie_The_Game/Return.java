@@ -23,13 +23,4 @@ public class Return extends Button
         GreenfootImage returnBtn = getImage();
         Picture returnImg = new Picture(returnBtn, 5);
     }
-    
-    private void checkClicked(GreenfootSound sound)
-    {
-        if (Greenfoot.mouseClicked(this))
-        {
-            Greenfoot.setWorld(new Menu());
-            sound.play();
-        }
-    }
 }

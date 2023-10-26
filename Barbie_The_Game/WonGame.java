@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class WonGame extends World
 {
 
+    // Initialize score and time variables
     private Score score;
     private Time time;
     
@@ -23,6 +24,8 @@ public class WonGame extends World
     
     private void prepare()
     {
+        getBackground().scale(getWidth() + 115, getHeight() + 115);
+        
         GreenfootImage gameWin = new GreenfootImage("../gameWin.png");
         Picture gameWinImg = new Picture(gameWin, 1);
         addObject(gameWinImg, getWidth()/2, 150);

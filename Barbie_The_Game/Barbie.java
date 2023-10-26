@@ -9,20 +9,19 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Barbie extends Player
 {
     private GreenfootImage[] esquerda, direita, morte, repouso;
-    private Health health;
     
     public void act()
     {
         mover("a", "w", "s", "d", esquerda, direita, repouso);
+        shoot("Space");
         hitSpeedBoost();
         hitLifeBoost();
         updateHealth();
-        respawn();
-        hitPortalBoost();
-        isTouchingGun();
-        shoot("Space");
         lostGame();
         wonGame();
+        hitPortalBoost();
+        isTouchingGun();
+        respawn();
     }
     
     public Barbie(Health health)
@@ -79,7 +78,7 @@ public class Barbie extends Player
     private void respawn() {
         if (isTouchingEnemy())
         {
-            setLocation(95,700);  
+            setLocation(((Maze)getWorld()).getCoordBarbie().getKey(),((Maze)getWorld()).getCoordBarbie().getValue());  
         }
     }
 }

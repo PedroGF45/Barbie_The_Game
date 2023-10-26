@@ -18,9 +18,10 @@ public class Player extends Actor
     {
         this.health = health;
     }
-    
+      
     public void act()
     {
+        
     }
     
     public void mover(String botao1, String botao2, String botao3, String botao4,GreenfootImage[] esquerda, GreenfootImage[] direita,GreenfootImage[] repouso )

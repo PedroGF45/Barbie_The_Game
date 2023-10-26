@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Menu extends World
 {
     // Add a soundtrack in the menu
-    private GreenfootSound soundtrack = new GreenfootSound("../soundtrack.mp3");
+    public static GreenfootSound soundtrack = new GreenfootSound("../soundtrack.mp3");
     
     public Menu()
     {    
@@ -37,16 +37,17 @@ public class Menu extends World
         Exit exitImg = new Exit();
         addObject(exitImg, getWidth()/2, 675);
         
+        // Scales the image to fit in the screen
         getBackground().scale(getWidth() + 115, getHeight() + 115);
     }
     
-    // Do something when the user clicks Run/Act
+    // Start the soundtrack when the game is started
     public void started()
     {
-        //soundtrack.play();
+        soundtrack.play();
     }
     
-    // Do somethin when the user clicks Reset or stops the game
+    // Stop the soundtrack when the game is stopped
     public void stopped()
     {
         soundtrack.stop();

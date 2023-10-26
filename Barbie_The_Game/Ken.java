@@ -8,25 +8,20 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Ken extends Player
 {
-    /**
-     * Act - do whatever the Ken wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    
     private GreenfootImage[] esquerda, direita, morte, repouso;
     
     public void act()
     {
         mover("left", "up", "down", "right", esquerda, direita, repouso);
+        shoot("0");
         hitSpeedBoost();
         hitLifeBoost();
         updateHealth();
-        respawn();
         lostGame();
         wonGame();
         hitPortalBoost();
         isTouchingGun();
-        shoot("L");
+        respawn();
     }
     
     public Ken(Health health)
@@ -83,7 +78,7 @@ public class Ken extends Player
     private void respawn() {
         if (isTouchingEnemy())
         {
-            setLocation(725,75);  
+            setLocation(((Maze)getWorld()).getCoordKen().getKey(),((Maze)getWorld()).getCoordKen().getValue());  
         }
     }
     

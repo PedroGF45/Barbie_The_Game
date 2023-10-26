@@ -16,10 +16,7 @@ public class Fight extends World
     private Barbie barbie;
     private Health kenHealth;
     private Ken ken;
-    /**
-     * Constructor for objects of class Fight.
-     * 
-     */
+
     public Fight(Health barbieHealth, Barbie barbie, Health kenHealth, Ken ken, Score score, Time time)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.

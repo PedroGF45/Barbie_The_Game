@@ -23,13 +23,4 @@ public class No extends Button
         GreenfootImage noBtn = getImage();
         Picture noImg = new Picture(noBtn, 5);
     }
-    
-    public void checkClicked(GreenfootSound sound)
-    {
-        if (Greenfoot.mouseClicked(this))
-        {
-            Greenfoot.setWorld(new Menu());
-            sound.play();
-        }
-    }
 }

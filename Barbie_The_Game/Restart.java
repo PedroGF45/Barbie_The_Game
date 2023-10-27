@@ -5,7 +5,7 @@ public class Restart extends Button
     public void act()
     {
         checkMouse();
-        checkClicked(new GreenfootSound("sounds/button.mp3"));
+        checkClicked(getBtnSound());
     }
     
     // constructor for restart button

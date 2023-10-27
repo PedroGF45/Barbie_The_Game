@@ -8,6 +8,8 @@ public class Button extends Actor
     // keeps track if the button is overed or not
     private boolean mouseOver = false;
     
+    private GreenfootSound sound = new GreenfootSound("sounds/button.mp3");
+    
     // Check if the mouse is overing the button
     public void checkMouse()
     {
@@ -31,6 +33,7 @@ public class Button extends Actor
         if (Greenfoot.mouseClicked(this))
         {
             ((Menu)getWorld()).switchWorld(world);
+            sound.setVolume(30);
             sound.play();
         }
     }
@@ -41,6 +44,7 @@ public class Button extends Actor
         if (Greenfoot.mouseClicked(this))
         {
             Greenfoot.setWorld(new Menu());
+            sound.setVolume(30);
             sound.play();
         }
     }
@@ -51,5 +55,10 @@ public class Button extends Actor
         GreenfootImage img = getImage();
         img.scale(img.getWidth() + scale,img.getHeight() + scale);
         setImage(img);
+    }
+    
+    public GreenfootSound getBtnSound()
+    {
+        return sound;
     }
 }

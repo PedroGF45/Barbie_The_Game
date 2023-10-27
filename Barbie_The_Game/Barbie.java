@@ -73,16 +73,20 @@ public class Barbie extends Player
     // Respawn player if touching an enemy or a projectile from the enemy
     private void respawn() {
         World currentWorld = getWorld();
-        if (isTouchingEnemy() || isTouching(Rock.class))
+        if (isTouchingRock() || isTouchingEnemy())
         {
             if (currentWorld instanceof Maze)
             {
                setLocation(((Maze)getWorld()).getCoordBarbie().getKey(), ((Maze)getWorld()).getCoordBarbie().getValue()); 
             }
-            else if (currentWorld instanceof Fight)
+            if (currentWorld instanceof Fight)
             {
-                setLocation(200, 600);
+                setLocation(Greenfoot.getRandomNumber(750), Greenfoot.getRandomNumber(750));
             }
+        }
+        if (isTouchingRock())
+        {
+            removeTouching(Rock.class);
         }
     }
 }

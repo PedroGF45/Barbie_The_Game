@@ -4,7 +4,7 @@ import java.util.TimerTask;
 
 public class Player extends Actor
 {
-    private int speed = 3;
+    private int speed = 4;
     private int contImag;
     private int tamanho = 13;
     private Health health;
@@ -141,10 +141,6 @@ public class Player extends Actor
             // lose 1 heart
             health.loseLife();
         }
-        if (isTouching(Rock.class))
-        {
-            removeTouching(Rock.class);
-        }
     }
     
     // Check if player is touching an enemy
@@ -153,6 +149,11 @@ public class Player extends Actor
         return isTouching(Enemy.class);
     }
     
+    public boolean isTouchingRock()
+    {
+        return isTouching(Rock.class);
+    }
+      
     // Lose game method
     public void lostGame()
     {

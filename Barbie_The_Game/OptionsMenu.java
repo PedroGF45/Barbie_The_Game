@@ -12,7 +12,16 @@ public class OptionsMenu extends World
     
     private void prepare()
     {
-        // Add different images 
+        // Add different images
+        
+        GreenfootImage barbieIcon = new GreenfootImage("images/barbie.png");
+        Picture barbieIconImg = new Picture(barbieIcon, 5);
+        addObject(barbieIconImg, 250, 100);
+        
+        GreenfootImage kenIcon = new GreenfootImage("images/ken.png");
+        Picture kenIconImg = new Picture(kenIcon, 5);
+        addObject(kenIconImg, 550, 100);
+        
         GreenfootImage barbie = new GreenfootImage("images/animacoes/IdleB.png");
         Picture barbieImg = new Picture(barbie, 3);
         addObject(barbieImg, 250, 250);

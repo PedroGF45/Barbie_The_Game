@@ -2,6 +2,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class History extends World
 {
+    // Add time
     private Time time;
     
     // Constructor

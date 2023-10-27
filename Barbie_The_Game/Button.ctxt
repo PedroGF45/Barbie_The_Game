@@ -8,4 +8,6 @@ comment3.params=sound
 comment3.target=void\ checkClicked(greenfoot.GreenfootSound)
 comment4.params=scale
 comment4.target=void\ scaleImg(int)
-numComments=5
+comment5.params=
+comment5.target=greenfoot.GreenfootSound\ getBtnSound()
+numComments=6

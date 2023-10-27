@@ -5,7 +5,7 @@ public class Play extends Button
     public void act()
     {
         checkMouse();
-        checkClicked(new History(), new GreenfootSound("sounds/button.mp3"));
+        checkClicked(new History(), getBtnSound());
     }
     
     // constructor for play button

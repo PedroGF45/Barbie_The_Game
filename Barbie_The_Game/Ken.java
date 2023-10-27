@@ -73,17 +73,20 @@ public class Ken extends Player
     // Respawn player if touching an enemy or a projectile from the enemy
     private void respawn() {
         World currentWorld = getWorld();
-        if (isTouchingEnemy() || isTouching(Rock.class))
+        if (isTouchingRock() || isTouchingEnemy())
         {
             if (currentWorld instanceof Maze)
             {
                setLocation(((Maze)getWorld()).getCoordKen().getKey(), ((Maze)getWorld()).getCoordKen().getValue()); 
             }
-            else if (currentWorld instanceof Fight)
+            if (currentWorld instanceof Fight)
             {
-                setLocation(200, 200);
-            }
-              
+                setLocation(Greenfoot.getRandomNumber(750), Greenfoot.getRandomNumber(750));
+            }  
+        }
+        if (isTouchingRock())
+        {
+            removeTouching(Rock.class);
         }
     }
     

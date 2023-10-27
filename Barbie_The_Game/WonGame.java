@@ -30,18 +30,18 @@ public class WonGame extends World
         
         // Add time
         int minutes = time.getTimeInMinutes();
-        int seconds = time.getTimeInSeconds();
+        int seconds = time.getTimeInSeconds() / 60;
         
         // Format the time as "mm:ss"
         String timeString = String.format("%02d:%02d", minutes, seconds);
 
-        GreenfootImage timeText = new GreenfootImage("Time" , 24, Color.WHITE, new Color(0,0,0,0));
+        GreenfootImage timeText = new GreenfootImage("Time" , 50, Color.WHITE, new Color(0,0,0,0));
         Picture timeTextImg = new Picture(timeText, 1);
-        GreenfootImage timeNumbers = new GreenfootImage(timeString, 24, Color.WHITE, new Color(0,0,0,0));
+        GreenfootImage timeNumbers = new GreenfootImage(timeString, 30, Color.WHITE, new Color(0,0,0,0));
         Picture timeNumbersImg = new Picture(timeNumbers, 1);
         
         addObject(timeTextImg, getWidth()/2, 450);
-        addObject(timeNumbersImg, getWidth()/2, 470);
+        addObject(timeNumbersImg, getWidth()/2, 490);
         
         GreenfootSound victory = new GreenfootSound("sounds/victory.mp3");
         victory.setVolume(67);

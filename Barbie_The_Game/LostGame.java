@@ -1,18 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class LostGame here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class LostGame extends World
 {
-
-    /**
-     * Constructor for objects of class LostGame.
-     * 
-     */
     public LostGame(World world, Score score, Time time)
     {    
         // Create a new world with 800x800 cells with a cell size of 1x1 pixels.

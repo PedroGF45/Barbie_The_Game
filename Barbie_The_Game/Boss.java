@@ -2,15 +2,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.TimerTask;
 import java.util.Timer;
 
-/**
- * Write a description of class Boss here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Boss extends Enemy
 {
-    private int bossSize = 4;
+    private int bossSize = 2;
     private int shiftcd = 0; //cooldown on target shifting
     private Player target;
     public Health health;

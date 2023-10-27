@@ -5,7 +5,7 @@ public class Exit extends Button
     public void act()
     {
         checkMouse();
-        checkClicked(new GreenfootSound("sounds/button.mp3"));
+        checkClicked(getBtnSound());
     }
     
     // constructor for exit button
@@ -20,7 +20,8 @@ public class Exit extends Button
     {
         if (Greenfoot.mouseClicked(this))
         {
-            Menu.soundtrack.stop();
+            sound.setVolume(30);
+            sound.play();
             Greenfoot.stop();
         }
     }

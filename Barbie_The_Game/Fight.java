@@ -41,7 +41,7 @@ public class Fight extends World
         addObject(time, 725, 775);
         
         // Add score
-        addObject(score, getWidth()/2, 25);
+        addObject(score, 125, 775);
 
         // Add Health bars and players
         addObject(barbieHealth, 100, 50);
@@ -150,6 +150,9 @@ public class Fight extends World
     {
         if (ken.ishittingPortal() && barbie.ishittingPortal())
         {
+            GreenfootSound wrap = new GreenfootSound("sounds/warp.mp3");
+            wrap.setVolume(50);
+            wrap.play();
             // increase number of portals
             score.gainPortal();
             //removeTouching(Portal.class);

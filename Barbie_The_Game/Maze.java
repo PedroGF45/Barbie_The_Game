@@ -2,12 +2,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 import java.util.Collections;
 import javafx.util.Pair; // Import Pair from the JavaFX library
-/**
- * Write a description of class Labirinto here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+
 public class Maze extends World
 {
     public int imageSize = 50;
@@ -257,6 +252,7 @@ public class Maze extends World
         LifeBoost lifeBoost5 = new LifeBoost();
         addObject(lifeBoost5,522,626);
         
+
         // Add enemies
         Bird bird = new Bird();
         addObject(bird,375,503);
@@ -278,16 +274,16 @@ public class Maze extends World
         addObject(spider3,526,79);
         //Spider spider4 = new Spider();
         //addObject(spider4,571,429);
-        
+
         // Add portal at the middle
-        Portal portalBoost = new Portal();
-        addObject(portalBoost,410,400);
+        Portal portal = new Portal();
+        addObject(portal,410,400);
         
         // Add time
         addObject(time, 725, 775);
         
         // Add score
-        addObject(score, getWidth()/2, 25);
+        addObject(score, 125, 775);
 
         // Add Health bars and players
         addObject(barbieHealth, 100, 50);
@@ -359,6 +355,9 @@ public class Maze extends World
     {
         if (ken.ishittingPortal() && barbie.ishittingPortal())
         {
+            GreenfootSound wrap = new GreenfootSound("sounds/warp.mp3");
+            wrap.setVolume(50);
+            wrap.play();
             // increase number of portals
             score.gainPortal();
             //removeTouching(Portal.class);

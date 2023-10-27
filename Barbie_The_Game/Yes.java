@@ -9,7 +9,7 @@ public class Yes extends Button
     public void act()
     {
         checkMouse();
-        checkClicked(new GreenfootSound("sounds/button.mp3"));
+        checkClicked(getBtnSound());
     }
 
     // constructor for yes button
@@ -40,6 +40,7 @@ public class Yes extends Button
             {
                 Greenfoot.setWorld(new Fight(barbieHealth, new Barbie(barbieHealth), kenHealth, new Ken(kenHealth), currentScore, currentTime));
             }
+            sound.setVolume(30);
             sound.play();
         }
     }

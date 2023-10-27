@@ -5,7 +5,7 @@ public class Return extends Button
     public void act()
     {
         checkMouse();
-        checkClicked(new GreenfootSound("sounds/button.mp3"));
+        checkClicked(getBtnSound());
     }
     
     // constructor for return button

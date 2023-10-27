@@ -1,6 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-
 public class Puzzle extends World
 {
        
@@ -39,7 +38,7 @@ public class Puzzle extends World
 
         // Add score
         score = new Score();
-        addObject(score, getWidth()/2, 50);
+        addObject(score, 125, 775);
 
         // Add Health bars and players
         barbieHealth = new Health(playerHearts);
@@ -124,6 +123,9 @@ public class Puzzle extends World
     {
         if (ken.ishittingPortal() && barbie.ishittingPortal())
         {
+            GreenfootSound wrap = new GreenfootSound("sounds/warp.mp3");
+            wrap.setVolume(50);
+            wrap.play();
             // increase number of portals
             score.gainPortal();
             //removeTouching(Portal.class);
@@ -135,6 +137,9 @@ public class Puzzle extends World
         if(getObjects(KenObjects.class).size()==0){
             if(getObjects(BarbieObjects.class).size()==0){
                 if (iSound==0){
+                    GreenfootSound portalSpawn = new GreenfootSound("sounds/warp.mp3");
+                    portalSpawn.setVolume(50);
+                    portalSpawn.play();
                     Greenfoot.playSound("sounds/portal.mp3");
                     iSound++;
                 }

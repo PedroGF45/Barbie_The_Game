@@ -9,7 +9,7 @@ public class No extends Button
     public void act()
     {
         checkMouse();
-        checkClicked( new GreenfootSound("sounds/button.mp3"));
+        checkClicked(getBtnSound());
     }
     
     // constructor for no button

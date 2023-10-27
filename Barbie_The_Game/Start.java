@@ -5,7 +5,7 @@ public class Start extends Button
     public void act()
     {
         checkMouse();
-        checkClicked( new GreenfootSound("sounds/button.mp3"));
+        checkClicked(getBtnSound());
     }
     
     // constructor for exit button
@@ -21,6 +21,7 @@ public class Start extends Button
         if (Greenfoot.mouseClicked(this))
         {
             Greenfoot.setWorld(new Puzzle(((History)getWorld()).getTime()));
+            sound.setVolume(30);
             sound.play();
         }
     }

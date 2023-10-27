@@ -25,7 +25,7 @@ public class LostGame extends World
         // Scales the image to fit in the screen
         getBackground().scale(getWidth() + 115, getHeight() + 115);
         
-        GreenfootImage gameOver = new GreenfootImage("../gameOver.png");
+        GreenfootImage gameOver = new GreenfootImage("images/gameOver.png");
         Picture gameOverImg = new Picture(gameOver, 5);
         addObject(gameOverImg, getWidth()/2, 250);
         

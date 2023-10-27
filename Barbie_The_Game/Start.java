@@ -5,7 +5,7 @@ public class Start extends Button
     public void act()
     {
         checkMouse();
-        checkClicked( new GreenfootSound("../start_game.mp3"));
+        checkClicked( new GreenfootSound("sounds/button.mp3"));
     }
     
     // constructor for exit button

@@ -1,11 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class WonGame here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class WonGame extends World
 {
 
@@ -27,7 +21,7 @@ public class WonGame extends World
         // Scales the image to fit in the screen
         getBackground().scale(getWidth() + 115, getHeight() + 115);
         
-        GreenfootImage gameWin = new GreenfootImage("../gameWin.png");
+        GreenfootImage gameWin = new GreenfootImage("images/gameWin.png");
         Picture gameWinImg = new Picture(gameWin, 5);
         addObject(gameWinImg, getWidth()/2, 250);
         
@@ -35,7 +29,19 @@ public class WonGame extends World
         addObject(score, getWidth()/2, 350);
         
         // Add time
-        addObject(time, getWidth()/2, 450);
+        int minutes = time.getTimeInMinutes();
+        int seconds = time.getTimeInSeconds();
+        
+        // Format the time as "mm:ss"
+        String timeString = String.format("%02d:%02d", minutes, seconds);
+
+        GreenfootImage timeText = new GreenfootImage("Time" , 24, Color.WHITE, new Color(0,0,0,0));
+        Picture timeTextImg = new Picture(timeText, 1);
+        GreenfootImage timeNumbers = new GreenfootImage(timeString, 24, Color.WHITE, new Color(0,0,0,0));
+        Picture timeNumbersImg = new Picture(timeNumbers, 1);
+        
+        addObject(timeTextImg, getWidth()/2, 450);
+        addObject(timeNumbersImg, getWidth()/2, 470);
         
         GreenfootSound victory = new GreenfootSound("sounds/victory.mp3");
         victory.setVolume(67);
@@ -46,6 +52,5 @@ public class WonGame extends World
         
         // Add button to exit
         addObject(new Exit(), 500, 600);
-
     }
 }

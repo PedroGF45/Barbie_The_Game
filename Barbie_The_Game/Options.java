@@ -5,7 +5,7 @@ public class Options extends Button
     public void act()
     {
         checkMouse();
-        checkClicked(new OptionsMenu(), new GreenfootSound("../start_game.mp3"));
+        checkClicked(new OptionsMenu(), new GreenfootSound("sounds/button.mp3"));
     }
     
     // constructor for options button

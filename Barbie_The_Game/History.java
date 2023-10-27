@@ -1,6 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-
 public class History extends World
 {
     private Time time;
@@ -25,6 +24,11 @@ public class History extends World
         
         time = new Time();
         addObject(time, 725, 775);
+        
+        //Add title
+        GreenfootImage story = new GreenfootImage("images/story.png");
+        Picture storyImg = new Picture(story, 5);
+        addObject(storyImg, getWidth()/2, 150);
         
         // Add history text
         BackgroundHistory history = new BackgroundHistory();

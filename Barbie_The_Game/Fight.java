@@ -1,11 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class Fight here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Fight extends World
 {
     private int phase = 1;
@@ -38,7 +32,7 @@ public class Fight extends World
         phaseTransition();
     }
     
-    public void prepare()
+    private void prepare()
     {
         // Scales the image to fit in the screen
         getBackground().scale(getWidth() + 115, getHeight() + 115);
@@ -50,19 +44,19 @@ public class Fight extends World
         addObject(score, getWidth()/2, 25);
 
         // Add Health bars and players
-        addObject(barbieHealth, 110, 25);
+        addObject(barbieHealth, 100, 50);
 
-        GreenfootImage barbieIcon = new GreenfootImage("../barbie.png");
-        Picture barbieIconImg = new Picture(barbieIcon, 20);
-        addObject(barbieIconImg, 190, 25);
+        GreenfootImage barbieIcon = new GreenfootImage("images/barbie.png");
+        Picture barbieIconImg = new Picture(barbieIcon, 10);
+        addObject(barbieIconImg, 100, 25);
 
         addObject(barbie,95,700); 
 
-        addObject(kenHealth, 700, 25);
+        addObject(kenHealth, 700, 50);
 
-        GreenfootImage kenIcon = new GreenfootImage("../ken.png");
-        Picture kenIconImg = new Picture(kenIcon, 15);
-        addObject(kenIconImg, 620, 25);
+        GreenfootImage kenIcon = new GreenfootImage("images/ken.png");
+        Picture kenIconImg = new Picture(kenIcon, 10);
+        addObject(kenIconImg, 700, 25);
 
         addObject(ken,725,75);
         

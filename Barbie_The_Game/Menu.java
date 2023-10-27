@@ -3,7 +3,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Menu extends World
 {
     // Add a soundtrack in the menu
-    public static GreenfootSound soundtrack = new GreenfootSound("../soundtrack.mp3");
+    public static GreenfootSound soundtrack = new GreenfootSound("sounds/soundtrack.mp3");
     
     // Constructor
     public Menu()
@@ -34,6 +34,8 @@ public class Menu extends World
         
         // Scales the image to fit in the screen
         getBackground().scale(getWidth() + 115, getHeight() + 115);
+        
+        soundtrack.setVolume(20);
     }
     
     // Start the soundtrack when the game is started

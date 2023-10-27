@@ -1,11 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class Puzzle here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+
 public class Puzzle extends World
 {
        
@@ -34,7 +29,7 @@ public class Puzzle extends World
         prepare();
     }
     
-    public void prepare()
+    private void prepare()
     {
         // Scales the image to fit in the screen
         getBackground().scale(getWidth() + 115, getHeight() + 115);
@@ -48,11 +43,11 @@ public class Puzzle extends World
 
         // Add Health bars and players
         barbieHealth = new Health(playerHearts);
-        addObject(barbieHealth, 110, 50);
+        addObject(barbieHealth, 100, 50);
 
-        GreenfootImage barbieIcon = new GreenfootImage("../barbie.png");
-        Picture barbieIconImg = new Picture(barbieIcon, 20);
-        addObject(barbieIconImg, 190, 50);
+        GreenfootImage barbieIcon = new GreenfootImage("images/barbie.png");
+        Picture barbieIconImg = new Picture(barbieIcon, 10);
+        addObject(barbieIconImg, 100, 25);
 
         barbie = new Barbie(barbieHealth);
         addObject(barbie,95,700); 
@@ -60,9 +55,9 @@ public class Puzzle extends World
         kenHealth = new Health(playerHearts);
         addObject(kenHealth, 700, 50);
 
-        GreenfootImage kenIcon = new GreenfootImage("../ken.png");
-        Picture kenIconImg = new Picture(kenIcon, 15);
-        addObject(kenIconImg, 620, 50);
+        GreenfootImage kenIcon = new GreenfootImage("images/ken.png");
+        Picture kenIconImg = new Picture(kenIcon, 10);
+        addObject(kenIconImg, 700, 25);
 
         ken = new Ken(kenHealth);
         addObject(ken,725,75);
@@ -91,9 +86,6 @@ public class Puzzle extends World
         // Add holes to pass clothes
         addObject(new Hole_1(), (getWidth()/2)-50, getHeight()/5); 
         addObject(new Hole_2(), (getWidth()/2)+50, getHeight()/5);
-        // Add the portal boost
-        //Portal portal = new Portal();
-        //addObject(portal,410,405);
     }
     
     // Encapsulation methods
@@ -143,7 +135,7 @@ public class Puzzle extends World
         if(getObjects(KenObjects.class).size()==0){
             if(getObjects(BarbieObjects.class).size()==0){
                 if (iSound==0){
-                    Greenfoot.playSound("../SomPortal/portal.mp3");
+                    Greenfoot.playSound("sounds/portal.mp3");
                     iSound++;
                 }
                 return true;

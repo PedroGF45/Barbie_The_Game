@@ -35,7 +35,7 @@ public class Boss extends Enemy
     
     // Check if boss is being shot
     public void touchingBullet(){
-        if(isTouching(bullet.class)){
+        if(isTouching(Bullet.class)){
             GreenfootSound hit = new GreenfootSound("sounds/bullet_hit.mp3");
             hit.setVolume(67);
             hit.play();

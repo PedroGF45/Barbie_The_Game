@@ -133,6 +133,12 @@ public class Player extends Actor
     public void loseHealth()
     {
         if (isTouchingEnemy() || isTouching(Rock.class)) {
+            // play sound when dies
+            GreenfootSound death = new GreenfootSound("sounds/death.mp3");
+            death.setVolume(50);
+            death.play();
+            
+            // lose 1 heart
             health.loseLife();
         }
         if (isTouching(Rock.class))

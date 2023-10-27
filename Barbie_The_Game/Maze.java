@@ -260,24 +260,24 @@ public class Maze extends World
         // Add enemies
         Bird bird = new Bird();
         addObject(bird,375,503);
-        Bird bird2 = new Bird();
-        addObject(bird2,372,618);
+        //Bird bird2 = new Bird();
+        //addObject(bird2,372,618);
         Bird bird3 = new Bird();
         addObject(bird3,375,734);
         Snake snake = new Snake();
-        addObject(snake,76,322);
+        addObject(snake,70,322);
         Snake snake2 = new Snake();
-        addObject(snake2,723,525);
-        Snake snake3 = new Snake();
-        addObject(snake3,622,725);
+        addObject(snake2,720,525);
+        //Snake snake3 = new Snake();
+        //addObject(snake3,615,725);
         Spider spider = new Spider();
         addObject(spider,264,325);
         Spider spider2 = new Spider();
         addObject(spider2,628,77);
         Spider spider3 = new Spider();
         addObject(spider3,526,79);
-        Spider spider4 = new Spider();
-        addObject(spider4,571,429);
+        //Spider spider4 = new Spider();
+        //addObject(spider4,571,429);
         
         // Add portal at the middle
         Portal portalBoost = new Portal();
@@ -290,17 +290,17 @@ public class Maze extends World
         addObject(score, getWidth()/2, 25);
 
         // Add Health bars and players
-        addObject(barbieHealth, 110, 25);
+        addObject(barbieHealth, 100, 50);
         
-        GreenfootImage barbieIcon = new GreenfootImage("../barbie.png");
-        Picture barbieIconImg = new Picture(barbieIcon, 20);
-        addObject(barbieIconImg, 190, 25);
+        GreenfootImage barbieIcon = new GreenfootImage("images/barbie.png");
+        Picture barbieIconImg = new Picture(barbieIcon, 10);
+        addObject(barbieIconImg, 100, 25);
         
-        addObject(kenHealth, 700, 25);
+        addObject(kenHealth, 700, 50);
 
-        GreenfootImage kenIcon = new GreenfootImage("../ken.png");
-        Picture kenIconImg = new Picture(kenIcon, 15);
-        addObject(kenIconImg, 620, 25);
+        GreenfootImage kenIcon = new GreenfootImage("images/ken.png");
+        Picture kenIconImg = new Picture(kenIcon, 10);
+        addObject(kenIconImg, 700, 25);
 
         // Shuffle the list of coordinates to randomize the order
         Collections.shuffle(coordinates);

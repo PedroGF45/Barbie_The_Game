@@ -5,7 +5,7 @@ public class Score extends Actor
     private int portals = 3;
     private int gotPortals = 0;
     
-    GreenfootImage portalImg = new GreenfootImage("../portal.png");
+    GreenfootImage portalImg = new GreenfootImage("images/portal.png");
     
     // Constructor for the score
     public Score()

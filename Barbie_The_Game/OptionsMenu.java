@@ -13,27 +13,27 @@ public class OptionsMenu extends World
     private void prepare()
     {
         // Add different images 
-        GreenfootImage barbie = new GreenfootImage("../animacoes/IdleB.png");
+        GreenfootImage barbie = new GreenfootImage("images/animacoes/IdleB.png");
         Picture barbieImg = new Picture(barbie, 3);
         addObject(barbieImg, 250, 250);
 
-        GreenfootImage wasd = new GreenfootImage("../wasd.png");
+        GreenfootImage wasd = new GreenfootImage("images/wasd.png");
         Picture wasdImg = new Picture(wasd, 2);
         addObject(wasdImg, 250, 450);
 
-        GreenfootImage spaceBar = new GreenfootImage("../spacebar.png");
+        GreenfootImage spaceBar = new GreenfootImage("images/spacebar.png");
         Picture spaceBarImg = new Picture(spaceBar, 7);
         addObject(spaceBarImg, 250, 625);
 
-        GreenfootImage ken = new GreenfootImage("../animacoes/Idle_009.png");
+        GreenfootImage ken = new GreenfootImage("images/animacoes/Idle_009.png");
         Picture kenImg = new Picture(ken, 3);
         addObject(kenImg, 550, 250);
 
-        GreenfootImage arrow = new GreenfootImage("../arrow.png");
+        GreenfootImage arrow = new GreenfootImage("images/arrow.png");
         Picture arrowImg = new Picture(arrow, 2);
         addObject(arrowImg, 550, 450);
 
-        GreenfootImage zeroKey = new GreenfootImage("../zerokey.png");
+        GreenfootImage zeroKey = new GreenfootImage("images/zerokey.png");
         Picture zeroKeyImg = new Picture(zeroKey, 7);
         addObject(zeroKeyImg, 550,625);
         

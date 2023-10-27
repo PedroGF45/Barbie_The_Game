@@ -10,7 +10,7 @@ public class Health extends Actor
 {
     public int hearts, maxHearts;
     
-    GreenfootImage heart = new GreenfootImage("../heart.png");
+    GreenfootImage heart = new GreenfootImage("images/heart.png");
     
     // Constructor for Health
     public Health(int units)

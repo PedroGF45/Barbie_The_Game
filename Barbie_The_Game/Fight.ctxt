@@ -1,6 +1,5 @@
 #BlueJ class context
 comment0.target=Fight
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Fight\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=barbieHealth\ barbie\ kenHealth\ ken\ score\ time
 comment1.target=Fight(Health,\ Barbie,\ Health,\ Ken,\ Score,\ Time)
 comment10.params=

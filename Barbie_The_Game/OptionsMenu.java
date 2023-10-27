@@ -47,7 +47,7 @@ public class OptionsMenu extends World
         addObject(zeroKeyImg, 550,625);
         
         Return returnImg = new Return();
-        addObject(returnImg, 725, 750);
+        addObject(returnImg, 725, 775);
         
         // Scales the image to fit in the screen
         getBackground().scale(getWidth() + 115, getHeight() + 115);

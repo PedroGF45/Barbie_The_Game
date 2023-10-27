@@ -12,7 +12,7 @@ public class Start extends Button
     public Start()
     {
         GreenfootImage startBtn = getImage();
-        Picture startImg = new Picture(startBtn, 5);
+        Picture startImg = new Picture(startBtn, 10);
     }
     
     // @override

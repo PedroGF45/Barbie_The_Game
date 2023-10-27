@@ -16,6 +16,6 @@ public class No extends Button
     public No()
     {
         GreenfootImage noBtn = getImage();
-        Picture noImg = new Picture(noBtn, 5);
+        Picture noImg = new Picture(noBtn, 10);
     }
 }

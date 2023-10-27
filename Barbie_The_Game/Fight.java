@@ -10,6 +10,7 @@ public class Fight extends World
 {
     private int phase = 1;
     private int kills = 0;
+    private int bossHearts = 1;
 
     private Time time;
     private Score score;
@@ -112,7 +113,7 @@ public class Fight extends World
     
     // Spawn boss method
     public void spawnBoss(){
-        Health bossHealth = new Health(10);
+        Health bossHealth = new Health(bossHearts);
         addObject(bossHealth, getWidth()/2, 75);
         Boss boss = new Boss(bossHealth);
         addObject(boss,700,100);

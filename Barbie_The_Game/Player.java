@@ -4,10 +4,9 @@ import java.util.TimerTask;
 
 public class Player extends Actor
 {
-    private int speed = 5;
+    private int speed = 3;
     private int contImag;
     private int tamanho = 13;
-    private String key = Greenfoot.getKey();  
     private Health health;
     private int ownsGun = 0;
     private int projr;
@@ -25,6 +24,10 @@ public class Player extends Actor
         int x=getX();
         int y=getY();
         
+        // Detecção de colisões para cada direção de movimento
+        boolean collisionUp = isTouchingWalls() && Greenfoot.isKeyDown(botao2);
+        boolean collisionDown = isTouchingWalls() && Greenfoot.isKeyDown(botao3);
+        
         //move to the left
         if(Greenfoot.isKeyDown (botao1))
         {
@@ -33,24 +36,6 @@ public class Player extends Actor
             //setLocation(x-speed, y);
             animacao(esquerda);
             projr = 180;
-        }
-        // move up
-        else if(Greenfoot.isKeyDown (botao2))
-        {
-            //move(speed);
-            setLocation(x, y-speed);
-            if (isTouchingWalls()) setLocation(x, y+speed);
-            animacao(esquerda);
-            projr = -90;
-        }
-        //move down
-        else if(Greenfoot.isKeyDown (botao3))
-        {
-            //move(speed);
-            setLocation(x, y+speed);
-            if (isTouchingWalls()) setLocation(x, y-speed);
-            animacao(direita);
-            projr = 90;
         }
         //move to the right
         else if(Greenfoot.isKeyDown (botao4))
@@ -61,8 +46,25 @@ public class Player extends Actor
             animacao(direita);
             projr = 0;
         }
-        //if(key==null){
-        else 
+        // move up
+        else if(Greenfoot.isKeyDown (botao2) && !collisionUp)
+        {
+            //move(speed);
+            setLocation(x, y-speed);
+            if (isTouchingWalls()) setLocation(x, y+speed);
+            animacao(esquerda);
+            projr = -90;
+        }
+        //move down
+        else if(Greenfoot.isKeyDown (botao3)&& !collisionDown)
+        {
+            //move(speed);
+            setLocation(x, y+speed);
+            if (isTouchingWalls()) setLocation(x, y-speed);
+            animacao(direita);
+            projr = 90;
+        }
+        else if(Greenfoot.getKey() == null)
         {
             setImage(repouso[0]);
         }

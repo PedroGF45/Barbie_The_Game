@@ -77,7 +77,7 @@ public class Ken extends Player
         {
             if (currentWorld instanceof Maze)
             {
-               setLocation(((Maze)getWorld()).getCoordBarbie().getKey(), ((Maze)getWorld()).getCoordBarbie().getValue()); 
+               setLocation(((Maze)getWorld()).getCoordKen().getKey(), ((Maze)getWorld()).getCoordKen().getValue()); 
             }
             else if (currentWorld instanceof Fight)
             {

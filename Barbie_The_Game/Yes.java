@@ -15,8 +15,8 @@ public class Yes extends Button
     // constructor for yes button
     public Yes(World world, Time time, Score score)
     {
-        GreenfootImage noBtn = getImage();
-        Picture noImg = new Picture(noBtn, 5);
+        GreenfootImage yesBtn = getImage();
+        Picture yesImg = new Picture(yesBtn, 10);
         this.currentWorld = world;
         this.currentTime = time;
         this.currentScore = score;

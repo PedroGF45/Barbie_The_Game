@@ -251,7 +251,8 @@ public class Maze extends World
         addObject(lifeBoost4,326,229);
         LifeBoost lifeBoost5 = new LifeBoost();
         addObject(lifeBoost5,522,626);
-
+        
+        /*
         // Add enemies
         Bird bird = new Bird();
         addObject(bird,375,503);
@@ -273,7 +274,8 @@ public class Maze extends World
         addObject(spider3,526,79);
         Spider spider4 = new Spider();
         addObject(spider4,571,429);
-
+        */
+        
         // Add portal at the middle
         PortalBoost portalBoost = new PortalBoost();
         addObject(portalBoost,410,400);

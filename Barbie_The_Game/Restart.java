@@ -1,6 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-public class Return extends Button
+public class Restart extends Button
 {
     public void act()
     {
@@ -8,10 +8,10 @@ public class Return extends Button
         checkClicked(new GreenfootSound("../start_game.mp3"));
     }
     
-    // constructor for return button
-    public Return()
+    // constructor for restart button
+    public Restart()
     {
-        GreenfootImage returnBtn = getImage();
-        Picture returnImg = new Picture(returnBtn, 10);
+        GreenfootImage restartBtn = getImage();
+        Picture restartImg = new Picture(restartBtn, 10);
     }
 }

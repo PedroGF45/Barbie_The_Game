@@ -28,21 +28,19 @@ public class WonGame extends World
         getBackground().scale(getWidth() + 115, getHeight() + 115);
         
         GreenfootImage gameWin = new GreenfootImage("../gameWin.png");
-        Picture gameWinImg = new Picture(gameWin, 1);
-        addObject(gameWinImg, getWidth()/2, 150);
+        Picture gameWinImg = new Picture(gameWin, 5);
+        addObject(gameWinImg, getWidth()/2, 250);
         
         // Add score
-        addObject(score, getWidth()/2, 250);
+        addObject(score, getWidth()/2, 350);
         
         // Add time
-        addObject(time, getWidth()/2, 300);
+        addObject(time, getWidth()/2, 450);
         
         // Add button to restart
-        Return restart = new Return();
-        restart.setImage(new GreenfootImage("../restart.png"));
-        addObject(restart, 500, 450);
+        addObject(new Restart(), 300, 600);
         
         // Add button to exit
-        addObject(new Exit(), 100, 400);
+        addObject(new Exit(), 500, 600);
     }
 }

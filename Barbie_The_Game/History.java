@@ -1,18 +1,11 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class PlayerSelection here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+
 public class History extends World
 {
     private Time time;
-    /**
-     * Constructor for objects of class History.
-     * 
-     */
+    
+    // Constructor
     public History()
     {    
         // Create a new world with 800x800 cells with a cell size of 1x1 pixels.
@@ -27,15 +20,18 @@ public class History extends World
     
     private void prepare()
     {
+        // Scales the image to fit in the screen
         getBackground().scale(getWidth() + 115, getHeight() + 115);
         
         time = new Time();
         addObject(time, 725, 775);
-               
+        
+        // Add history text
         BackgroundHistory history = new BackgroundHistory();
         addObject(history, getWidth()/2, getHeight()/2);
     }
     
+    // Method to add ability to player to skip text or automatically skip text after 1 minute
     private void checkTime()
     {
         if (time.getTimeInMinutes() == 1)
@@ -50,11 +46,13 @@ public class History extends World
         }
     }   
     
+    // Get current time
     public Time getTime()
     {
         return time;
     }
     
+    // Switch to next world
     public void switchToGame(World world)
     {
         Greenfoot.setWorld(world);

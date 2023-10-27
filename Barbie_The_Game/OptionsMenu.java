@@ -1,17 +1,8 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class OptionsMenu here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class OptionsMenu extends World
 {
-    /**
-     * Constructor for objects of class OptionsMenu.
-     * 
-     */
+    // Constructor
     public OptionsMenu()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -21,7 +12,8 @@ public class OptionsMenu extends World
     
     private void prepare()
     {
-        GreenfootImage barbie = new GreenfootImage("../animacoes/Idle_009.png");
+        // Add different images 
+        GreenfootImage barbie = new GreenfootImage("../animacoes/IdleB.png");
         Picture barbieImg = new Picture(barbie, 3);
         addObject(barbieImg, 250, 250);
 
@@ -45,13 +37,14 @@ public class OptionsMenu extends World
         Picture zeroKeyImg = new Picture(zeroKey, 7);
         addObject(zeroKeyImg, 550,625);
         
-        // Add the options button as image
         Return returnImg = new Return();
-        addObject(returnImg, 725, 750);
-
+        addObject(returnImg, 725, 775);
+        
+        // Scales the image to fit in the screen
         getBackground().scale(getWidth() + 115, getHeight() + 115);
     }
     
+    // Switch to a different world
     public void switchWorld(World world)
     {
         Greenfoot.setWorld(world);

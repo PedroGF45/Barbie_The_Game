@@ -1,16 +1,11 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class Timer here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+
 public class Time extends Actor
 {
     private int timeInSeconds; // The time counter in seconds
     private int timeInMinutes; // The time counter in minutes
-    public boolean stopTime = false;
+    private boolean stopTime = false;
 
     public Time() {
         timeInSeconds = 0;
@@ -31,6 +26,11 @@ public class Time extends Actor
     public int getTimeInMinutes() 
     {
         return timeInMinutes;
+    }
+    
+    public void stopTime()
+    {
+        stopTime = true;
     }
     
     public void updateTime(boolean stopTime)

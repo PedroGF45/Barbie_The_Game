@@ -1,10 +1,9 @@
 #BlueJ class context
 comment0.target=Score
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Portal\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=portalImg
-comment1.target=void\ updatePortal(greenfoot.GreenfootImage)
-comment2.params=
-comment2.target=Score()
+comment1.params=
+comment1.target=Score()
+comment2.params=portalImg
+comment2.target=void\ updatePortal(greenfoot.GreenfootImage)
 comment3.params=
 comment3.target=int\ getPortals()
 comment4.params=

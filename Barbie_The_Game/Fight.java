@@ -9,6 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Fight extends World
 {
     private int phase = 1;
+    private int kills = 0;
+    private int bossHearts = 10;
 
     private Time time;
     private Score score;
@@ -30,7 +32,9 @@ public class Fight extends World
         prepare();
     }
     
+    // Always check for phase transition
     public void act(){
+        checkWinGame();
         phaseTransition();
     }
     
@@ -39,10 +43,7 @@ public class Fight extends World
         // Scales the image to fit in the screen
         getBackground().scale(getWidth() + 115, getHeight() + 115);
         
-        //Health bossHealth = new Health(10);
-        //addObject(bossHealth, 650, 50);
-        //Boss boss = new Boss(bossHealth);
-        //addObject(boss,650,200);
+        // Add time
         addObject(time, 725, 775);
         
         // Add score
@@ -65,6 +66,7 @@ public class Fight extends World
 
         addObject(ken,725,75);
         
+        // Add enemies
         addObject(new Spider(),620, 15);
         addObject(new Spider(),620, 350);
         addObject(new Spider(),620, 650);
@@ -73,13 +75,13 @@ public class Fight extends World
         addObject(new Snake(),600, 170);
         addObject(new Snake(),610, 490);
         addObject(new Snake(),510, 410);
+        
+        // Add guns
         addObject(new Gun(), 250, 50);
         addObject(new Gun(), 250, 650);
-        
-        PortalBoost portalBoost = new PortalBoost();
-        addObject(portalBoost,getWidth()/2,getHeight()/2);
     }
     
+    // Encapsulation methods
     public Barbie getBarbie()
     {
         return barbie;
@@ -110,26 +112,57 @@ public class Fight extends World
         return time;
     }
     
+    // Spawn boss method
     public void spawnBoss(){
-        Health bossHealth = new Health(10);
-        addObject(bossHealth, 650, 50);
+        Health bossHealth = new Health(bossHearts);
+        addObject(bossHealth, getWidth()/2, 75);
         Boss boss = new Boss(bossHealth);
         addObject(boss,700,100);
     }
     
+    // Spawn portal method
     public void spawnPortal(){
-        
+        Portal portalBoost = new Portal();
+        addObject(portalBoost,getWidth()/2,getHeight()/2);
     }
     
+    // Increase kills method
+    public void increaseKills()
+    {
+        kills++;
+    }
+    
+    // Get current number of kills
+    public int getKills()
+    {
+        return kills;
+    }
+    
+    // Method for the phase transition
     public void phaseTransition(){
-        bullet bullet = new bullet();
-        if(phase == 1 && bullet.kills == 8){
+        Bullet bullet = new Bullet();
+        if(phase == 1 && getKills() == 8){
             spawnBoss();
             phase++;
         }
-        if(phase == 2 && bullet.kills == 9){
+        if(phase == 2 && getKills() == 9){
             spawnPortal();
             phase++;
+        }
+    }
+    
+    // check if both players are hitting the portal and set next level
+    private void checkWinGame()
+    {
+        if (ken.ishittingPortal() && barbie.ishittingPortal())
+        {
+            // increase number of portals
+            score.gainPortal();
+            //removeTouching(Portal.class);
+            // stop time
+            time.stopTime();
+            // win game
+            Greenfoot.setWorld(new WonGame(score, time));
         }
     }
 }

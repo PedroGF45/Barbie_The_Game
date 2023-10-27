@@ -22,6 +22,7 @@ public class LostGame extends World
     
     private void prepare(World world, Time time, Score score)
     {
+        // Scales the image to fit in the screen
         getBackground().scale(getWidth() + 115, getHeight() + 115);
         
         GreenfootImage gameOver = new GreenfootImage("../gameOver.png");
@@ -30,6 +31,7 @@ public class LostGame extends World
         
         addObject(new RestartLevel(), getWidth()/2, 450);
         
+        // Add yes and no buttons
         addObject(new No(), 500, 600);
         addObject(new Yes(world, time, score), 300, 600);
         

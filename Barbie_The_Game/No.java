@@ -1,11 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class No here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class No extends Button
 {
     /**
@@ -18,9 +12,10 @@ public class No extends Button
         checkClicked( new GreenfootSound("../start_game.mp3"));
     }
     
+    // constructor for no button
     public No()
     {
         GreenfootImage noBtn = getImage();
-        Picture noImg = new Picture(noBtn, 5);
+        Picture noImg = new Picture(noBtn, 10);
     }
 }

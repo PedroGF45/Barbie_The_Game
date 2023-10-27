@@ -1,11 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class Buttons here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Button extends Actor
 {  
     // sets the amount to scale the button when overed
@@ -41,7 +35,7 @@ public class Button extends Actor
         }
     }
     
-    // @overload
+    //@overload para botões que retornam ao menu inicial
     public void checkClicked(GreenfootSound sound)
     {
         if (Greenfoot.mouseClicked(this))

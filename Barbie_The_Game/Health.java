@@ -11,16 +11,17 @@ public class Health extends Actor
     public int hearts, maxHearts;
     
     GreenfootImage heart = new GreenfootImage("../heart.png");
-      
-    /**
-     * Act - do whatever the Heart wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act()
+    
+    // Constructor for Health
+    public Health(int units)
     {
-        
+        hearts = units;
+        maxHearts = units;
+        heart.scale(20,20); 
+        updateLife(heart);
     }
     
+    // update image of health
     public void updateLife(GreenfootImage heart) {
         int x = heart.getWidth();
         int y = heart.getHeight();
@@ -32,29 +33,22 @@ public class Health extends Actor
         setImage(image);
     }
     
-    public Health(int units)
-    {
-        hearts = units;
-        maxHearts = units;
-        heart.scale(20,20); 
-        updateLife(heart);
-    }
-    
     public int getHealth() 
     {
         return hearts;
     }
     
+    // Lose life method
     public void loseLife() 
     {
         hearts--;
         updateLife(heart);
     }
     
+    // Gain life method
     public void gainLife() 
     {
         hearts++;
         updateLife(heart);
     }
-    
 }

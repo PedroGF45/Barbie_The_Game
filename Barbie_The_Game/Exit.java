@@ -1,11 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class Exit here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Exit extends Button
 {
     public void act()
@@ -14,13 +8,14 @@ public class Exit extends Button
         checkClicked(new GreenfootSound("../start_game.mp3"));
     }
     
+    // constructor for exit button
     public Exit()
     {
         GreenfootImage exitBtn = getImage();
         Picture exit = new Picture(exitBtn, 10);
     }
     
-    // @override
+    @Override
     public void checkClicked(GreenfootSound sound)
     {
         if (Greenfoot.mouseClicked(this))

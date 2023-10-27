@@ -1,23 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class Enemies here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Enemy extends Actor
 {
     public int speed = 2;
-    /**
-     * Act - do whatever the Enemies wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act()
-    {
-        
-    }
     
+    // Method to correct movement if enemies are going passed the edge of the screen
     public void moveAtEdge()
     {
         int x = getX();
@@ -44,6 +31,7 @@ public class Enemy extends Actor
         
     }
     
+    // Method to add a circular movement
     public void rotationMovement()
     {
         int x = getWorld().getWidth()/2;

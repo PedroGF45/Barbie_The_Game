@@ -34,6 +34,7 @@ public class Fight extends World
     
     // Always check for phase transition
     public void act(){
+        checkWinGame();
         phaseTransition();
     }
     
@@ -121,7 +122,7 @@ public class Fight extends World
     
     // Spawn portal method
     public void spawnPortal(){
-        PortalBoost portalBoost = new PortalBoost();
+        Portal portalBoost = new Portal();
         addObject(portalBoost,getWidth()/2,getHeight()/2);
     }
     
@@ -147,6 +148,21 @@ public class Fight extends World
         if(phase == 2 && getKills() == 9){
             spawnPortal();
             phase++;
+        }
+    }
+    
+    // check if both players are hitting the portal and set next level
+    private void checkWinGame()
+    {
+        if (ken.ishittingPortal() && barbie.ishittingPortal())
+        {
+            // increase number of portals
+            score.gainPortal();
+            //removeTouching(Portal.class);
+            // stop time
+            time.stopTime();
+            // win game
+            Greenfoot.setWorld(new WonGame(score, time));
         }
     }
 }

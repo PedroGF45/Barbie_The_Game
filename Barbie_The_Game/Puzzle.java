@@ -18,6 +18,11 @@ public class Puzzle extends World
     private Health kenHealth;
     private Ken ken;
     
+    public void act()
+    {
+        checkWinPuzzle();
+    }
+    
     public Puzzle(Time time)
     {    
         // Create a new world with 800x800 cells with a cell size of 1x1 pixels.
@@ -60,8 +65,8 @@ public class Puzzle extends World
         addObject(ken,725,75);
         
         // Add the portal boost
-        PortalBoost portalBoost = new PortalBoost();
-        addObject(portalBoost,410,405);
+        Portal portal = new Portal();
+        addObject(portal,410,405);
     }
     
     // Encapsulation methods
@@ -95,9 +100,15 @@ public class Puzzle extends World
         return time;
     }
     
-    // Switch to next world
-    public void switchWorld(World world)
+    // check if both players are hitting the portal and set next level
+    private void checkWinPuzzle()
     {
-        Greenfoot.setWorld(world);
+        if (ken.ishittingPortal() && barbie.ishittingPortal())
+        {
+            // increase number of portals
+            score.gainPortal();
+            //removeTouching(Portal.class);
+            Greenfoot.setWorld(new Maze(barbieHealth, barbie, kenHealth, ken, score, time));
+        }
     }
 }

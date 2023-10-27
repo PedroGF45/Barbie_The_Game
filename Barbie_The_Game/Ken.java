@@ -12,7 +12,7 @@ public class Ken extends Player
         hitLifeBoost();
         lostGame();
         wonGame();
-        hitPortalBoost();
+        ishittingPortal();
         isTouchingGun();
         loseHealth();
         respawn();

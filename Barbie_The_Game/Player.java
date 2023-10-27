@@ -120,47 +120,13 @@ public class Player extends Actor
     }
     
     // Check if player is touching a portal
-    public void hitPortalBoost()
+    public boolean ishittingPortal()
     {
-        if (isTouching(PortalBoost.class))
+        if (isTouching(Portal.class))
         {
-            World currentWorld = getWorld();
-            if (currentWorld instanceof Puzzle)
-            {
-                // Retrieve Barbie and Ken from the puzzle world
-                Barbie barbie = ((Puzzle) getWorld()).getBarbie();
-                Health barbieHealth = ((Puzzle) getWorld()).getBarbieHealth();
-                Ken ken = ((Puzzle) getWorld()).getKen();
-                Health kenHealth = ((Puzzle) getWorld()).getKenHealth();
-                Score score = ((Puzzle) getWorld()).getScore();
-                score.gainPortal();
-                removeTouching(PortalBoost.class);
-                Time time = ((Puzzle) getWorld()).getTime();
-                Greenfoot.setWorld(new Maze(barbieHealth, barbie, kenHealth, ken, score, time));
-            }
-            else if (currentWorld instanceof Maze)
-            {
-                // Retrieve Barbie and Ken from the maze world
-                Barbie barbie = ((Maze) getWorld()).getBarbie();
-                Health barbieHealth = ((Maze) getWorld()).getBarbieHealth();
-                Ken ken = ((Maze) getWorld()).getKen();
-                Health kenHealth = ((Maze) getWorld()).getKenHealth();
-                Score score = ((Maze) getWorld()).getScore();
-                score.gainPortal();
-                removeTouching(PortalBoost.class);
-                Time time = ((Maze) getWorld()).getTime();
-                Greenfoot.setWorld(new Fight(barbieHealth, barbie, kenHealth, ken, score, time));
-            }
-            else if (currentWorld instanceof Fight)
-            {
-                Score score = ((Fight) getWorld()).getScore();
-                score.gainPortal();
-                removeTouching(PortalBoost.class);
-                Time time = ((Fight) getWorld()).getTime();
-                time.stopTime();
-                Greenfoot.setWorld(new WonGame(score, time));
-            }
+            return true;
         }
+        return false;
     }
     
     // Lose life method

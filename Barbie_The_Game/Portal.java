@@ -1,9 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-public class PortalBoost extends Actor
+public class Portal extends Actor
 {
     // Constructor for Portal
-    public PortalBoost()
+    public Portal()
     {
         getImage().scale(getImage().getWidth()/2, getImage().getHeight()/2);
     }

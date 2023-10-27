@@ -23,6 +23,11 @@ public class Maze extends World
     private ArrayList<Pair<Integer, Integer>> coordinates;
     private Pair<Integer, Integer> coordBarbie;
     private Pair<Integer, Integer> coordKen;
+    
+    public void act()
+    {
+        checkWinMaze();
+    }
 
     public Maze(Health barbieHealth, Barbie barbie, Health kenHealth, Ken ken, Score score, Time time) {
         super(800, 800, 1);
@@ -275,7 +280,7 @@ public class Maze extends World
         addObject(spider4,571,429);
         
         // Add portal at the middle
-        PortalBoost portalBoost = new PortalBoost();
+        Portal portalBoost = new Portal();
         addObject(portalBoost,410,400);
         
         // Add time
@@ -347,5 +352,17 @@ public class Maze extends World
     public Time getTime()
     {
         return time;
+    }
+    
+    // check if both players are hitting the portal and set next level
+    private void checkWinMaze()
+    {
+        if (ken.ishittingPortal() && barbie.ishittingPortal())
+        {
+            // increase number of portals
+            score.gainPortal();
+            //removeTouching(Portal.class);
+            Greenfoot.setWorld(new Fight(barbieHealth, barbie, kenHealth, ken, score, time));
+        }
     }
 }

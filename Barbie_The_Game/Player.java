@@ -225,6 +225,9 @@ public class Player extends Actor
             bullet1.setRotation(projr);
             cooldown = true;
             timer.schedule(new TimerTask(){public void run(){cooldown = false;}}, 1600);
+            GreenfootSound gunshot = new GreenfootSound("sounds/pistol.wav");
+            gunshot.setVolume(67);
+            gunshot.play();
         };
     }
 

@@ -56,13 +56,13 @@ public class Enemy extends Actor
     }
     
     // Check if entity is touching the wall
-    private boolean isTouchingWall()
+    public boolean isTouchingWall()
     {
         return isTouching(Square.class);
     }
     
     // Change the movement to the opposite direction
-    private void changeSpeed()
+    public void changeSpeed()
     {
         speed = - speed;
     }

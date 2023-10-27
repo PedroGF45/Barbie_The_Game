@@ -37,6 +37,9 @@ public class Boss extends Enemy
     
     public void touchingBullet(){
         if(isTouching(bullet.class)){
+            GreenfootSound hit = new GreenfootSound("sounds/bullet_hit.mp3");
+            hit.setVolume(67);
+            hit.play();
             health.loseLife();
             removeTouching(bullet.class);
         }
@@ -51,13 +54,7 @@ public class Boss extends Enemy
     }
     
     public void moveTowardsPlayer(){
-        if(Greenfoot.getRandomNumber(100) <= 39){
-            turnTowards(target.getX(), target.getY());
-        }
-        else{
-            turnTowards(target.getX(), target.getY());
-            turn(Greenfoot.getRandomNumber(160)-80);
-        }
+        turnTowards(target.getX(), target.getY());
     }
     
     public void throwRocks(){

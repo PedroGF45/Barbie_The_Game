@@ -32,5 +32,9 @@ public class LostGame extends World
         
         addObject(new No(), 500, 600);
         addObject(new Yes(world, time, score), 300, 600);
+        
+        GreenfootSound defeat = new GreenfootSound("sounds/defeat.mp3");
+        defeat.setVolume(50);
+        defeat.play();
     }
 }

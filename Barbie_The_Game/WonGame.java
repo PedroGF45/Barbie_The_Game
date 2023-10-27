@@ -38,5 +38,9 @@ public class WonGame extends World
         restart.setImage(new GreenfootImage("../restart.png"));
         addObject(restart, 500, 450);
         addObject(new Exit(), 100, 400);
+        
+        GreenfootSound victory = new GreenfootSound("sounds/victory.mp3");
+        victory.setVolume(67);
+        victory.play();
     }
 }

@@ -21,19 +21,24 @@ public class bullet extends Projectiles
     }
     
     public bullet(){
-        
+
     }
     
     public void bulletCollision(){
+        GreenfootSound hit = new GreenfootSound("sounds/bullet_hit.mp3");
+        hit.setVolume(67);
         if(isTouching(Bird.class)){
+            hit.play();
             removeTouching(Bird.class);
             getWorld().removeObject(this);
             kills++;
         }else if(isTouching(Snake.class)){
+            hit.play();
             removeTouching(Snake.class);
             getWorld().removeObject(this);
             kills++;
         }else if(isTouching(Spider.class)){
+            hit.play();
             removeTouching(Spider.class);
             getWorld().removeObject(this);
             kills++;

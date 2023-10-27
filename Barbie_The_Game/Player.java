@@ -205,5 +205,19 @@ public class Player extends Actor
             timer.schedule(new TimerTask(){public void run(){cooldown = false;}}, 1600);
         };
     }
-
+    
+    @Override
+    public void setLocation(int x, int y){
+        if (Greenfoot.isKeyDown("space")){
+            Actor actor= getOneIntersectingObject(KenObjects.class );
+            Actor actor1= getOneIntersectingObject(BarbieObjects.class);
+            if(actor != null){
+                actor.setLocation(actor.getX()+(x-getX()) , actor.getY()+(y-getY()));//coloca o objeto na mesma localização do ator
+            }
+            if(actor1 != null){
+                actor1.setLocation(actor1.getX()+(x-getX()) , actor1.getY()+(y-getY()));//coloca o objeto na mesma localização do ator
+            }
+        }
+        super.setLocation(x,y); //para que nao haja recursao da função original de setLocation
+    }
 }

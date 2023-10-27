@@ -10,7 +10,7 @@ public class Fight extends World
 {
     private int phase = 1;
     private int kills = 0;
-    private int bossHearts = 1;
+    private int bossHearts = 10;
 
     private Time time;
     private Score score;

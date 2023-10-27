@@ -35,7 +35,7 @@ public class Button extends Actor
         }
     }
     
-    // @overload
+    //@overload para botões que retornam ao menu inicial
     public void checkClicked(GreenfootSound sound)
     {
         if (Greenfoot.mouseClicked(this))

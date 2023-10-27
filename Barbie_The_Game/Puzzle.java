@@ -18,6 +18,7 @@ public class Puzzle extends World
     private Health kenHealth;
     private Ken ken;
     private int iSound;
+    private boolean portalOpened = false;
     
     public void act()
     {
@@ -138,16 +139,25 @@ public class Puzzle extends World
         }
     }
     
-    private void openPortal(){
+    private boolean canOpenPortal(){
         if(getObjects(KenObjects.class).size()==0){
             if(getObjects(BarbieObjects.class).size()==0){
                 if (iSound==0){
                     Greenfoot.playSound("../SomPortal/portal.mp3");
                     iSound++;
                 }
-                Portal portal = new Portal();
-                addObject(portal,410,405);
+                return true;
             }
+        }
+        return false;
+    }
+    
+    private void openPortal() {
+        if (canOpenPortal() && !portalOpened)
+        {
+            Portal portal = new Portal();
+            addObject(portal,410,405); 
+            portalOpened = true;
         }
     }
 }

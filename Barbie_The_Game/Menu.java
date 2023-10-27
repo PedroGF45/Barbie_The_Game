@@ -1,16 +1,11 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class Menu here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Menu extends World
 {
     // Add a soundtrack in the menu
     public static GreenfootSound soundtrack = new GreenfootSound("../soundtrack.mp3");
     
+    // Constructor
     public Menu()
     {    
         // Create a new world with 1080x720 cells with a cell size of 1x1 pixels.

@@ -1,11 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class Play here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Play extends Button
 {
     public void act()
@@ -14,6 +8,7 @@ public class Play extends Button
         checkClicked(new History(), new GreenfootSound("../start_game.mp3"));
     }
     
+    // constructor for play button
     public Play()
     {
         GreenfootImage playBtn = getImage();

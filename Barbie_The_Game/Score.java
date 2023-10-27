@@ -1,18 +1,20 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class Portal here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Score extends Actor
 {
     private int portals = 3;
     private int gotPortals = 0;
     
     GreenfootImage portalImg = new GreenfootImage("../portal.png");
-      
+    
+    // Constructor for the score
+    public Score()
+    {
+        portalImg.scale(50,50); 
+        updatePortal(portalImg);
+    }
+    
+    // Update the image of the score granting transparency to portals that players haven't got
     public void updatePortal(GreenfootImage portalImg) {
         int x = portalImg.getWidth();
         int y = portalImg.getHeight();
@@ -35,22 +37,19 @@ public class Score extends Actor
         setImage(image);
     }
     
-    public Score()
-    {
-        portalImg.scale(50,50); 
-        updatePortal(portalImg);
-    }
-    
+    // Get number of portals gained by players
     public int getPortals() 
     {
         return gotPortals;
     }
     
+    // reset score method
     public void resetScore()
     {
         gotPortals = 0;
     }
      
+    // Increse number of portals
     public void gainPortal() 
     {
         gotPortals++;

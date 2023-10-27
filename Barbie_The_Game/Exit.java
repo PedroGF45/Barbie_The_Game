@@ -14,6 +14,7 @@ public class Exit extends Button
         checkClicked(new GreenfootSound("../start_game.mp3"));
     }
     
+    // constructor for exit button
     public Exit()
     {
         GreenfootImage exitBtn = getImage();

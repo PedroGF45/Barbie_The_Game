@@ -1,11 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class Ken here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Ken extends Player
 {
     private GreenfootImage[] esquerda, direita, morte, repouso;
@@ -23,7 +17,8 @@ public class Ken extends Player
         loseHealth();
         respawn();
     }
-    
+
+    // Constructor for Ken
     public Ken(Health health)
     {
         super(health);
@@ -75,6 +70,7 @@ public class Ken extends Player
         setImage(repouso[0]);
     }
     
+    // Respawn player if touching an enemy or a projectile from the enemy
     private void respawn() {
         World currentWorld = getWorld();
         if (isTouchingEnemy() || isTouching(Rock.class))

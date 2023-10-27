@@ -31,6 +31,7 @@ public class Fight extends World
         prepare();
     }
     
+    // Always check for phase transition
     public void act(){
         phaseTransition();
     }
@@ -40,6 +41,7 @@ public class Fight extends World
         // Scales the image to fit in the screen
         getBackground().scale(getWidth() + 115, getHeight() + 115);
         
+        // Add time
         addObject(time, 725, 775);
         
         // Add score
@@ -62,6 +64,7 @@ public class Fight extends World
 
         addObject(ken,725,75);
         
+        // Add enemies
         addObject(new Spider(),620, 15);
         addObject(new Spider(),620, 350);
         addObject(new Spider(),620, 650);
@@ -70,10 +73,13 @@ public class Fight extends World
         addObject(new Snake(),600, 170);
         addObject(new Snake(),610, 490);
         addObject(new Snake(),510, 410);
+        
+        // Add guns
         addObject(new Gun(), 250, 50);
         addObject(new Gun(), 250, 650);
     }
     
+    // Encapsulation methods
     public Barbie getBarbie()
     {
         return barbie;
@@ -104,6 +110,7 @@ public class Fight extends World
         return time;
     }
     
+    // Spawn boss method
     public void spawnBoss(){
         Health bossHealth = new Health(10);
         addObject(bossHealth, getWidth()/2, 75);
@@ -111,21 +118,25 @@ public class Fight extends World
         addObject(boss,700,100);
     }
     
+    // Spawn portal method
     public void spawnPortal(){
         PortalBoost portalBoost = new PortalBoost();
         addObject(portalBoost,getWidth()/2,getHeight()/2);
     }
     
+    // Increase kills method
     public void increaseKills()
     {
         kills++;
     }
     
+    // Get current number of kills
     public int getKills()
     {
         return kills;
     }
     
+    // Method for the phase transition
     public void phaseTransition(){
         Bullet bullet = new Bullet();
         if(phase == 1 && getKills() == 8){

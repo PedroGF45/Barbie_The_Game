@@ -9,20 +9,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Bullet extends Projectiles
 {
     private int speed = 20;
-    /**
-     * Act - do whatever the bullets wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+ 
     public void act()
     {
         move(speed);
         bulletCollision();
     }
     
-    public Bullet(){
-        
-    }
-    
+    // Method to deal with bullet collisions
     private void bulletCollision(){
         if(isTouching(Bird.class)){
             removeTouching(Bird.class);
@@ -39,6 +33,7 @@ public class Bullet extends Projectiles
         }
     }
     
+    // increase kills and remove bullet
     private void increaseAndRemove(Bullet bullet)
     {
         ((Fight)getWorld()).increaseKills();

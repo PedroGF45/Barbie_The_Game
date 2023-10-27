@@ -6,30 +6,26 @@ public class Player extends Actor
 {
     private int speed = 5;
     private int contImag;
-    public int tamanho = 13;
+    private int tamanho = 13;
     private String key = Greenfoot.getKey();  
     private Health health;
     private int ownsGun = 0;
-    public int projr;
+    private int projr;
+    private boolean cooldown = false;
     Timer timer = new Timer();
-    public boolean cooldown = false;
     
+    // Constructor for player
     public Player(Health health)
     {
         this.health = health;
     }
-      
-    public void act()
-    {
         
-    }
-    
     public void mover(String botao1, String botao2, String botao3, String botao4,GreenfootImage[] esquerda, GreenfootImage[] direita,GreenfootImage[] repouso )
     {
         int x=getX();
         int y=getY();
         
-        //mover para a esquerda
+        //move to the left
         if(Greenfoot.isKeyDown (botao1))
         {
             move(-speed);
@@ -38,7 +34,7 @@ public class Player extends Actor
             animacao(esquerda);
             projr = 180;
         }
-        // mover para cima
+        // move up
         else if(Greenfoot.isKeyDown (botao2))
         {
             //move(speed);
@@ -47,7 +43,7 @@ public class Player extends Actor
             animacao(esquerda);
             projr = -90;
         }
-        //mover para baixo
+        //move down
         else if(Greenfoot.isKeyDown (botao3))
         {
             //move(speed);
@@ -56,7 +52,7 @@ public class Player extends Actor
             animacao(direita);
             projr = 90;
         }
-        //mover para a direita
+        //move to the right
         else if(Greenfoot.isKeyDown (botao4))
         {
             move(speed);
@@ -72,7 +68,7 @@ public class Player extends Actor
         }
     }
     
-    //sequencia de animações andar/morte
+    // Animation sequence for images
     public void animacao(GreenfootImage[] seqImagens){
         contImag++;
         Greenfoot.delay(2);
@@ -81,7 +77,7 @@ public class Player extends Actor
         }
         setImage(seqImagens[contImag]);
     }
-    //mudar o tamanho da sequencia de imagens de animações
+    // Scale images for the animation
     public void escala(GreenfootImage[] seqImaTam){
         for(int i=0;i< seqImaTam.length ;i++){
             seqImaTam[i].scale(seqImaTam[i].getWidth()/tamanho,seqImaTam[i].getHeight()/tamanho);
@@ -89,11 +85,13 @@ public class Player extends Actor
         }
     }
     
+    // Check if player is touching the walls
     public boolean isTouchingWalls()
     {
         return isTouching(Square.class);
     }
     
+    // Check if player is touching a speed boost
     public void hitSpeedBoost()
     {
         if (isTouching(SpeedBoost.class))
@@ -106,6 +104,7 @@ public class Player extends Actor
         }
     }
     
+    // Check if player is touching a life boost
     public void hitLifeBoost()
     {
         if (isTouching(LifeBoost.class))
@@ -118,6 +117,7 @@ public class Player extends Actor
         }
     }
     
+    // Check if player is touching a portal
     public void hitPortalBoost()
     {
         if (isTouching(PortalBoost.class))
@@ -125,7 +125,7 @@ public class Player extends Actor
             World currentWorld = getWorld();
             if (currentWorld instanceof Puzzle)
             {
-                // Retrieve Barbie and Ken from the current world
+                // Retrieve Barbie and Ken from the puzzle world
                 Barbie barbie = ((Puzzle) getWorld()).getBarbie();
                 Health barbieHealth = ((Puzzle) getWorld()).getBarbieHealth();
                 Ken ken = ((Puzzle) getWorld()).getKen();
@@ -138,7 +138,7 @@ public class Player extends Actor
             }
             else if (currentWorld instanceof Maze)
             {
-                // Retrieve Barbie and Ken from the current world
+                // Retrieve Barbie and Ken from the maze world
                 Barbie barbie = ((Maze) getWorld()).getBarbie();
                 Health barbieHealth = ((Maze) getWorld()).getBarbieHealth();
                 Ken ken = ((Maze) getWorld()).getKen();
@@ -155,12 +155,13 @@ public class Player extends Actor
                 score.gainPortal();
                 removeTouching(PortalBoost.class);
                 Time time = ((Fight) getWorld()).getTime();
-                time.stopTime = true;
+                time.stopTime();
                 Greenfoot.setWorld(new WonGame(score, time));
             }
         }
     }
     
+    // Lose life method
     public void loseHealth()
     {
         if (isTouchingEnemy() || isTouching(Rock.class)) {
@@ -172,11 +173,13 @@ public class Player extends Actor
         }
     }
     
+    // Check if player is touching an enemy
     public boolean isTouchingEnemy()
     {
         return isTouching(Enemy.class);
     }
     
+    // Lose game method
     public void lostGame()
     {
         if (health.hearts == 0) 
@@ -184,14 +187,14 @@ public class Player extends Actor
             World world = getWorld();
             if (world instanceof Maze)
             {
-                // Retrieve Barbie and Ken from the current world
+                // Retrieve Barbie and Ken from the maze world
                 Score score = ((Maze) getWorld()).getScore();
                 Time time = ((Maze) getWorld()).getTime();
                 Greenfoot.setWorld(new LostGame(world, score, time));
             }
             else if (world instanceof Fight)
             {
-                // Retrieve Barbie and Ken from the current world
+                // Retrieve Barbie and Ken from the fight world
                 Score score = ((Fight) getWorld()).getScore();
                 Time time = ((Fight) getWorld()).getTime();
                 Greenfoot.setWorld(new LostGame(world, score, time));
@@ -199,6 +202,7 @@ public class Player extends Actor
         }
     }
     
+    // win game method
     public void wonGame()
     {
         World world = getWorld();        
@@ -213,6 +217,7 @@ public class Player extends Actor
         }
     }
     
+    // Check if player is touching a gun
     public void isTouchingGun()
     {
         if(isTouching(Gun.class) && ownsGun == 0){
@@ -221,6 +226,7 @@ public class Player extends Actor
         }
     }
     
+    // Shoot method for the player
     public void shoot(String key){
         if(ownsGun == 1 && Greenfoot.isKeyDown(key) && cooldown==false){
             World world = getWorld();

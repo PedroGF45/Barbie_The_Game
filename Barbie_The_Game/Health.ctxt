@@ -1,17 +1,14 @@
 #BlueJ class context
 comment0.target=Health
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ Heart\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=
-comment1.target=void\ act()
-comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Heart\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment1.params=units
+comment1.target=Health(int)
 comment2.params=heart
 comment2.target=void\ updateLife(greenfoot.GreenfootImage)
-comment3.params=units
-comment3.target=Health(int)
+comment3.params=
+comment3.target=int\ getHealth()
 comment4.params=
-comment4.target=int\ getHealth()
+comment4.target=void\ loseLife()
 comment5.params=
-comment5.target=void\ loseLife()
-comment6.params=
-comment6.target=void\ gainLife()
-numComments=7
+comment5.target=void\ gainLife()
+numComments=6

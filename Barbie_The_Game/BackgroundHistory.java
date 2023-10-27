@@ -1,15 +1,11 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class BackGroundHistory here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class BackgroundHistory extends Text
 {
+    // Story constructor
     public BackgroundHistory()
     {
+        // Add story background for the game
         GreenfootImage text = new GreenfootImage("Once upon a time, Barbie and Ken lived happily,\n" + "surrounded by friendship, fun, and beauty.\n" +
                                                     "One day, they decided to embark on a journey to Planet Earth.\n" +
                                                     "On Planet Earth, Barbie and Ken explored exotic beaches,\n" + "majestic mountains, and bustling cities. \n" + "However, unexpectedly, a magical anomaly occurred\n" +  "and closed the portal that connected them to the Barbie Land.\n" +

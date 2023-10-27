@@ -53,6 +53,7 @@ public class Menu extends World
         soundtrack.stop();
     }
     
+    // Switch to a different world
     public void switchWorld(World world)
     {
         Greenfoot.setWorld(world);

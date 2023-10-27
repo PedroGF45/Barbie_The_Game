@@ -11,14 +11,11 @@ import java.util.Timer;
 public class Boss extends Enemy
 {
     private int bossSize = 4;
-    public Health health;
     private int shiftcd = 0; //cooldown on target shifting
     private Player target;
+    public Health health;
     Timer timer = new Timer();
-    /**
-     * Act - do whatever the Boss wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+
     public void act()
     {
         chooseTarget();
@@ -29,12 +26,14 @@ public class Boss extends Enemy
         move(speed);
     }
     
+    // Constructor for Boss
     public Boss(Health health)
     {
         this.health = health;
         getImage().scale(getImage().getWidth() * bossSize, getImage().getHeight() * bossSize);
     }
     
+    // Check if boss is being shot
     public void touchingBullet(){
         if(isTouching(Bullet.class)){
             health.loseLife();
@@ -42,6 +41,7 @@ public class Boss extends Enemy
         }
     }
     
+    // Check if boss is dead
     public void dead(){
         if(health.hearts == 0){
             Bullet bullet = new Bullet();
@@ -50,6 +50,7 @@ public class Boss extends Enemy
         }
     }
     
+    // Move the boss towards the player
     public void moveTowardsPlayer(){
         if(Greenfoot.getRandomNumber(100) <= 39){
             turnTowards(target.getX(), target.getY());
@@ -60,6 +61,7 @@ public class Boss extends Enemy
         }
     }
     
+    // Method to add ability to the boss to throw rocks
     public void throwRocks(){
         if(Greenfoot.getRandomNumber(40) == 0){
             Rock rock = new Rock();
@@ -68,6 +70,7 @@ public class Boss extends Enemy
         };
     }
     
+    // Method to select the player to target randomly
     public void chooseTarget(){
         if(shiftcd == 0){
             if(Greenfoot.getRandomNumber(2) == 0){

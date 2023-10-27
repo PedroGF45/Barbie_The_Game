@@ -11,6 +11,7 @@ import javafx.util.Pair; // Import Pair from the JavaFX library
 public class Maze extends World
 {
     public int imageSize = 50;
+    
     private Time time;
     private Score score;
     private Health barbieHealth;
@@ -22,10 +23,7 @@ public class Maze extends World
     private ArrayList<Pair<Integer, Integer>> coordinates;
     private Pair<Integer, Integer> coordBarbie;
     private Pair<Integer, Integer> coordKen;
-    /**
-     * Constructor for objects of class Maze.
-     * 
-     */
+
     public Maze(Health barbieHealth, Barbie barbie, Health kenHealth, Ken ken, Score score, Time time) {
         super(800, 800, 1);
         
@@ -45,12 +43,12 @@ public class Maze extends World
         prepare();
     }
 
-    // act() method: waits for all tracers to remove themselves, then connects the individual areas created by the tracers
     private void prepare()
     {
         // Scales the image to fit in the screen
         getBackground().scale(getWidth() + 115, getHeight() + 115);
         
+        // build the outter layers of the maze
         int counter = 0;
         // top border 
         for (int i = imageSize / 2; i < getWidth(); i+=imageSize) {
@@ -76,6 +74,7 @@ public class Maze extends World
             addObject(square, getWidth()- imageSize/2, i);
         }
 
+        // build the inner layers of the maze
         Square square = new Square();
         addObject(square,75,625);
         Square square63 = new Square();
@@ -275,6 +274,7 @@ public class Maze extends World
         Spider spider4 = new Spider();
         addObject(spider4,571,429);
 
+        // Add portal at the middle
         PortalBoost portalBoost = new PortalBoost();
         addObject(portalBoost,410,400);
         
@@ -285,7 +285,6 @@ public class Maze extends World
         addObject(score, getWidth()/2, 25);
 
         // Add Health bars and players
-        
         addObject(barbieHealth, 110, 25);
         
         GreenfootImage barbieIcon = new GreenfootImage("../barbie.png");
@@ -305,12 +304,13 @@ public class Maze extends World
         coordBarbie = coordinates.get(0);
         coordKen = coordinates.get(1);
 
-        // Add objects at the selected coordinates
+        // Add players at the selected coordinates
         addObject(barbie, coordBarbie.getKey(), coordBarbie.getValue());
         addObject(ken, coordKen.getKey(), coordKen.getValue());
 
     }
     
+    // Encapsulation methods
     public Barbie getBarbie()
     {
         return barbie;

@@ -1,11 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class Yes here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Yes extends Button
 {
     private World currentWorld;
@@ -17,7 +11,8 @@ public class Yes extends Button
         checkMouse();
         checkClicked(new GreenfootSound("../start_game.mp3"));
     }
-    
+
+    // constructor for yes button
     public Yes(World world, Time time, Score score)
     {
         GreenfootImage noBtn = getImage();
@@ -35,10 +30,12 @@ public class Yes extends Button
             Health barbieHealth = new Health(5);
             Health kenHealth = new Health(5);
             
+            // Check if current world is a Maze world
             if (currentWorld instanceof Maze)
             {
                 Greenfoot.setWorld(new Maze(barbieHealth, new Barbie(barbieHealth), kenHealth, new Ken(kenHealth), currentScore, currentTime));
             }
+            // Check if current world is a Fight world
             else if (currentWorld instanceof Fight)
             {
                 Greenfoot.setWorld(new Fight(barbieHealth, new Barbie(barbieHealth), kenHealth, new Ken(kenHealth), currentScore, currentTime));

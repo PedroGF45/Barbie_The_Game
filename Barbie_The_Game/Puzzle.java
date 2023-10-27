@@ -59,10 +59,12 @@ public class Puzzle extends World
         ken = new Ken(kenHealth);
         addObject(ken,725,75);
         
+        // Add the portal boost
         PortalBoost portalBoost = new PortalBoost();
         addObject(portalBoost,410,405);
     }
     
+    // Encapsulation methods
     public Barbie getBarbie()
     {
         return barbie;
@@ -93,6 +95,7 @@ public class Puzzle extends World
         return time;
     }
     
+    // Switch to next world
     public void switchWorld(World world)
     {
         Greenfoot.setWorld(world);

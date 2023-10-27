@@ -1,11 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class Options here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Options extends Button
 {
     public void act()
@@ -14,6 +8,7 @@ public class Options extends Button
         checkClicked(new OptionsMenu(), new GreenfootSound("../start_game.mp3"));
     }
     
+    // constructor for options button
     public Options()
     {
         GreenfootImage optionBtn = getImage();

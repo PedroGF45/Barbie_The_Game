@@ -20,11 +20,11 @@ public class Snake extends Enemy
     {
         if (getWorld() instanceof Fight)
         {
-            if (Greenfoot.getRandomNumber(10) < 3) // check if a random number between 0-9 is less than 5 (30% chance)
+            if (Greenfoot.getRandomNumber(50) < 3)
             {
-                turn(5);
+                turn(Greenfoot.getRandomNumber(30)-15);
             }
-            move(speed - 1);
+            move(speed + 1);
         }
     }
 }

@@ -37,10 +37,15 @@ public class WonGame extends World
         // Add time
         addObject(time, getWidth()/2, 450);
         
+        GreenfootSound victory = new GreenfootSound("sounds/victory.mp3");
+        victory.setVolume(67);
+        victory.play();
+
         // Add button to restart
         addObject(new Restart(), 300, 600);
         
         // Add button to exit
         addObject(new Exit(), 500, 600);
+
     }
 }

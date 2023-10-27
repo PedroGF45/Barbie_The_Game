@@ -35,7 +35,10 @@ public class Boss extends Enemy
     
     // Check if boss is being shot
     public void touchingBullet(){
-        if(isTouching(Bullet.class)){
+        if(isTouching(bullet.class)){
+            GreenfootSound hit = new GreenfootSound("sounds/bullet_hit.mp3");
+            hit.setVolume(67);
+            hit.play();
             health.loseLife();
             removeTouching(Bullet.class);
         }
@@ -52,13 +55,7 @@ public class Boss extends Enemy
     
     // Move the boss towards the player
     public void moveTowardsPlayer(){
-        if(Greenfoot.getRandomNumber(100) <= 39){
-            turnTowards(target.getX(), target.getY());
-        }
-        else{
-            turnTowards(target.getX(), target.getY());
-            turn(Greenfoot.getRandomNumber(160)-80);
-        }
+        turnTowards(target.getX(), target.getY());
     }
     
     // Method to add ability to the boss to throw rocks

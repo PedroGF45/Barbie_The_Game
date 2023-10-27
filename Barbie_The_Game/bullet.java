@@ -18,13 +18,18 @@ public class Bullet extends Projectiles
     
     // Method to deal with bullet collisions
     private void bulletCollision(){
+        GreenfootSound hit = new GreenfootSound("sounds/bullet_hit.mp3");
+        hit.setVolume(67);
         if(isTouching(Bird.class)){
+            hit.play();
             removeTouching(Bird.class);
             increaseAndRemove(this); 
         }else if(isTouching(Snake.class)){
+            hit.play();
             removeTouching(Snake.class);
             increaseAndRemove(this); 
         }else if(isTouching(Spider.class)){
+            hit.play();
             removeTouching(Spider.class);
             increaseAndRemove(this); 
         }

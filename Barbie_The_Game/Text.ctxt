@@ -1,5 +1,3 @@
 #BlueJ class context
 comment0.target=Text
-comment1.params=sound
-comment1.target=void\ voice(greenfoot.GreenfootSound)
-numComments=2
+numComments=1

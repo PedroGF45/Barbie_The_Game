@@ -157,7 +157,7 @@ public class Player extends Actor
     // Lose game method
     public void lostGame()
     {
-        if (health.hearts == 0) 
+        if (health.getHealth() == 0) 
         {
             World world = getWorld();
             if (world instanceof Maze)

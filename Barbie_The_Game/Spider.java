@@ -1,11 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class Spider here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Spider extends Enemy
 {
     public void act()
@@ -28,7 +22,7 @@ public class Spider extends Enemy
             {
                 turn((Greenfoot.getRandomNumber(9)-4)*45);
             }
-            move(speed + 2);
+            move(getSpeed() + 2);
         }
         else{
             if (isTouchingWall())
@@ -36,7 +30,7 @@ public class Spider extends Enemy
             changeSpeed();
             }
             setRotation(90);
-            move(speed);
+            move(getSpeed());
         }
     }
 }

@@ -1,14 +1,8 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class Heart here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Health extends Actor
 {
-    public int hearts, maxHearts;
+    private int hearts, maxHearts;
     
     GreenfootImage heart = new GreenfootImage("images/heart.png");
     

@@ -2,7 +2,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class Enemy extends Actor
 {
-    public int speed = 2;
+    private int speed = 2;
     
     // Method to correct movement if enemies are going passed the edge of the screen
     public void moveAtEdge()
@@ -53,6 +53,11 @@ public class Enemy extends Actor
     public void changeSpeed()
     {
         speed = - speed;
+    }
+    
+    public int getSpeed()
+    {
+        return speed;
     }
     
     // Movement for horizontally alligned enemies

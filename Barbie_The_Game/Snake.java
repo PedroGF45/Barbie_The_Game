@@ -24,7 +24,7 @@ public class Snake extends Enemy
             {
                 turn(Greenfoot.getRandomNumber(30)-15);
             }
-            move(speed + 1);
+            move(getSpeed() + 1);
         }
     }
 }

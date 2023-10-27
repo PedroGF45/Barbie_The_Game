@@ -17,7 +17,7 @@ public class Boss extends Enemy
         dead();
         moveTowardsPlayer();
         throwRocks();
-        move(speed);
+        move(getSpeed());
     }
     
     // Constructor for Boss
@@ -40,7 +40,7 @@ public class Boss extends Enemy
     
     // Check if boss is dead
     public void dead(){
-        if(health.hearts == 0){
+        if(health.getHealth() == 0){
             Bullet bullet = new Bullet();
             ((Fight)getWorld()).increaseKills();
             getWorld().removeObject(this);
